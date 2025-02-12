@@ -12,7 +12,7 @@ const priceTable = {
 
 const distanceRanges = [17, 50, 100, 150, 200, 250, 300];
 
-const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
 export default function BookingExtra() {
   const [vehicle, setVehicle] = useState("Business");

@@ -1,7 +1,7 @@
 export async function POST(req) {
   try {
     const { pickup, dropoff } = await req.json();
-    const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+    const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
     if (!pickup || !dropoff) {
       return new Response(JSON.stringify({ error: "Missing pickup or dropoff location" }), {
