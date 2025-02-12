@@ -9,3 +9,6 @@ out/
 node_modules/
 .next/
 out/
+
+# macOS system files
+.DS_Store
