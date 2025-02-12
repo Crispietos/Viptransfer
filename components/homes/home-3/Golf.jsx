@@ -73,7 +73,7 @@ export default function GolfResortTransfers() {
                 <Image
                   width={100}
                   height={100}
-                  src="/assets/imgs/LahinchGolf.png" // Zdjęcie: "Lahinch golf course"
+                  src="/assets/imgs/LahinchGolf.WebP" 
                   alt="Lahinch Golf Club"
                   className="mb-20"
                 />
@@ -112,7 +112,7 @@ export default function GolfResortTransfers() {
                 <Image
                   width={350}
                   height={200}
-                  src="/assets/imgs/AdareManor.png" // Zdjęcie: "Adare Manor golf resort"
+                  src="/assets/imgs/AdareManor.WebP" // Zdjęcie: "Adare Manor golf resort"
                   alt="Adare Manor"
                   className="rounded-lg mb-20"
                 />
@@ -138,7 +138,7 @@ export default function GolfResortTransfers() {
                 <Image
                   width={350}
                   height={200}
-                  src="/assets/imgs/KClub.png" // Zdjęcie: "The K Club golf Ireland"
+                  src="/assets/imgs/KClub.WebP"
                   alt="The K Club"
                   className="rounded-lg mb-20"
                 />

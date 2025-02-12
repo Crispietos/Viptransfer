@@ -26,7 +26,7 @@ export default function WaterfordKilkennyTrip() {
         <section className="section pt-0 pb-60">
           <div className="container-sub">
             <Image
-              src="/assets/imgs/Waterford.png"
+              src="/assets/imgs/Waterford.WebP"
               width={1200}
               height={700}
               alt="Waterford and Kilkenny"

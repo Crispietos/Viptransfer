@@ -25,7 +25,7 @@ export default function NorthWestTrip() {
         <section className="section pt-0 pb-60">
           <div className="container-sub">
             <Image
-              src="/assets/imgs/Ancient & Medieval Wonders.png"
+              src="/assets/imgs/Ancient & Medieval Wonders.WebP"
               width={1200}
               height={700}
               alt="Ancient and Medieval Wonders"

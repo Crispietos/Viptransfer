@@ -29,7 +29,7 @@ export default function CliffsOfMoher() {
         <section className="section pt-0 pb-60">
           <div className="container-sub">
             <Image
-              src="/assets/imgs/daytrips/CliffsofMoher.jpg"
+              src="/assets/imgs/daytrips/CliffsofMoher.WebP"
               width={1200}
               height={700}
               alt="Cliffs of Moher"

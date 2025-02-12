@@ -58,7 +58,7 @@ export default function WeddingTransfers() {
                 <Image
                   width={100}
                   height={100}
-                  src="/assets/imgs/LuxuryWeddingCar.png" // Zdjęcie: "luxury car for weddings", ozdobiony samochód, romantyczna atmosfera
+                  src="/assets/imgs/LuxuryWeddingCar.WebP" 
                   alt="Luxury Wedding Car"
                   className="mb-20"
                 />
@@ -71,7 +71,7 @@ export default function WeddingTransfers() {
                 <Image
                   width={100}
                   height={100}
-                  src="/assets/imgs/ProfessionalDrivers.png" // Zdjęcie: "professional chauffeur for weddings", kierowca w garniturze przy samochodzie
+                  src="/assets/imgs/ProfessionalDrivers.WebP" // Zdjęcie: "professional chauffeur for weddings", kierowca w garniturze przy samochodzie
                   alt="Professional Drivers"
                   className="mb-20"
                 />
@@ -108,7 +108,7 @@ export default function WeddingTransfers() {
                 <Image
                   width={350}
                   height={200}
-                  src="/assets/imgs/DublinWedding.png" // Zdjęcie: "Dublin wedding location", elegancki kościół lub luksusowy hotel
+                  src="/assets/imgs/DublinWedding.WebP" // Zdjęcie: "Dublin wedding location", elegancki kościół lub luksusowy hotel
                   alt="Dublin Weddings"
                   className="rounded-lg mb-20"
                 />

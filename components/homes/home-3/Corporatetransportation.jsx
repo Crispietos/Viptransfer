@@ -61,7 +61,7 @@ export default function CorporateTransportation() {
                 <Image
                   width={100}
                   height={100}
-                   src="/assets/imgs/services/mercnight.png"
+                   src="/assets/imgs/services/mercnight.WebP"
                   alt="Professional Chauffeurs"
                   className="mb-20"
                 />
@@ -76,7 +76,7 @@ export default function CorporateTransportation() {
                 <Image
                   width={100}
                   height={100}
-                    src="/assets/imgs/services/weel.png"
+                    src="/assets/imgs/services/weel.webp"
                   alt="Premium Fleet"
                   className="mb-20"
                 />

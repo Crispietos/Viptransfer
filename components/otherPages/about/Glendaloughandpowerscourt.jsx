@@ -26,7 +26,7 @@ export default function GlendaloughTrip() {
         <section className="section pt-0 pb-60">
           <div className="container-sub">
             <Image
-              src="/assets/imgs/daytrips/Glendalough.png"
+              src="/assets/imgs/daytrips/Glendalough.WebP"
               width={1200}
               height={700}
               alt="Glendalough"

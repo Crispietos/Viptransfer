@@ -9,14 +9,14 @@ export default function DayTripsCTA() {
       id: 1,
       title: "Cliffs of Moher",
       description: "Experience the breathtaking beauty of Ireland's cliffs.",
-      image: "/assets/imgs/daytrips/CliffsofMoher.jpg", // Zdjęcie: wyszukaj "cliffs of moher scenic view" na Adobe Stock
+      image: "/assets/imgs/daytrips/CliffsofMoher.WebP", 
       href: "/trips/cliffs-of-moher",
     },
     {
       id: 2,
       title: "Glendalough & Powerscourt",
       description: "Explore serene landscapes and historic gardens.",
-      image: "/assets/imgs/daytrips/Glendalough.png", // Zdjęcie: wyszukaj "Glendalough valley Ireland" na Adobe Stock
+      image: "/assets/imgs/daytrips/Glendalough.Webp",
       href: "/trips/glendalough-and-powerscourt",
     },
     {
@@ -31,7 +31,7 @@ export default function DayTripsCTA() {
       title: "Waterford & Kilkenny",
       description:
         "Discover the charm of Kilkenny and Waterford.",
-      image: "/assets/imgs/Waterford.png",
+      image: "/assets/imgs/Waterford.WebP",
       href: "/trips/waterford-kilkenny",
     },
     {
@@ -39,7 +39,7 @@ export default function DayTripsCTA() {
       title: "Blarney Castle",
       description:
         "Explore Ireland’s historical gems in one day.",
-      image: "/assets/imgs/Blarney Castle.png",
+      image: "/assets/imgs/Blarney Castle.WebP",
       href: "/trips/Blarney-Castle",
     },
     {
@@ -47,7 +47,7 @@ export default function DayTripsCTA() {
       title: "Castle South and Southwest",
       description:
         "Journey through castles in Southern Ireland.",
-      image: "/assets/imgs/Castle South and Southwest.png",
+      image: "/assets/imgs/Castle South and Southwest.WebP",
       href: "/trips/CastleSouthandSouthwest",
     },
     {
@@ -55,7 +55,7 @@ export default function DayTripsCTA() {
                   title: "Ancient & Medieval Wonders",
                   description:
                     "A day trip through Ireland’s North West.",
-                  image: "/assets/imgs/Ancient & Medieval Wonders.png",
+                  image: "/assets/imgs/Ancient & Medieval Wonders.WebP",
                   href: "/trips/AncientandMedievalWonders",
                 },
   ];

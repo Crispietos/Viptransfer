@@ -58,7 +58,7 @@ export default function CityTours() {
                 <Image
                   width={100}
                   height={100}
-                  src="/assets/imgs/DublinHighlights.png" // Zdjęcie: "Dublin landmarks", Temple Bar, Trinity College
+                  src="/assets/imgs/DublinHighlights.WebP" 
                   alt="Dublin Highlights"
                   className="mb-20"
                 />
@@ -84,7 +84,7 @@ export default function CityTours() {
                 <Image
                   width={100}
                   height={100}
-                  src="/assets/imgs/GalwayExperience.png" // Zdjęcie: "Galway city tour", uliczki, festiwale
+                  src="/assets/imgs/GalwayExperience.WebP"
                   alt="Galway Experience"
                   className="mb-20"
                 />
