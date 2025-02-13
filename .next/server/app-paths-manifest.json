@@ -1,0 +1,7 @@
+{
+  "/booking-extra/page": "app/booking-extra/page.js",
+  "/trips/cliffs-of-moher/page": "app/trips/cliffs-of-moher/page.js",
+  "/prices/page": "app/prices/page.js",
+  "/aboutus/page": "app/aboutus/page.js",
+  "/(booking)/booking-passenger/page": "app/(booking)/booking-passenger/page.js"
+}

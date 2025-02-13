@@ -1,0 +1,69 @@
+{
+  "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/not-found.css",
+      "static/chunks/app/not-found.js"
+    ],
+    "/booking-extra/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/booking-extra/page.css",
+      "static/chunks/app/booking-extra/page.js"
+    ],
+    "/(booking)/booking-passenger/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(booking)/booking-passenger/page.css",
+      "static/chunks/app/(booking)/booking-passenger/page.js"
+    ],
+    "/(booking)/booking-payment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(booking)/booking-payment/page.css",
+      "static/chunks/app/(booking)/booking-payment/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+    ],
+    "/(pages)/gallery/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(pages)/gallery/page.css",
+      "static/chunks/app/(pages)/gallery/page.js"
+    ],
+    "/trips/cliffs-of-moher/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/trips/cliffs-of-moher/page.css",
+      "static/chunks/app/trips/cliffs-of-moher/page.js"
+    ],
+    "/prices/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/prices/page.css",
+      "static/chunks/app/prices/page.js"
+    ],
+    "/aboutus/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/aboutus/page.css",
+      "static/chunks/app/aboutus/page.js"
+    ]
+  }
+}
