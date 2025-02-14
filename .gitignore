@@ -1,2 +1,20 @@
+<<<<<<< HEAD
 .vercel
 node_modules
+=======
+node_modules/
+node_modules/
+.next/
+node_modules/
+.next/
+node_modules/
+.next/
+out/
+node_modules/
+.next/
+out/
+
+# macOS system files
+.DS_Store
+.env.local
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48

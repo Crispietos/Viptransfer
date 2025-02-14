@@ -39,7 +39,11 @@ export default function DayTrips() {
                 <Image
                   width={600}
                   height={400}
+<<<<<<< HEAD
                   src="/assets/imgs/daytrips/overview.webp"
+=======
+                  src="/assets/imgs/daytrips/overview.jpg"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Day Trips"
                   className="rounded-lg"
                 />
@@ -79,21 +83,33 @@ export default function DayTrips() {
                   id: 1,
                   title: "Cliffs of Moher",
                   description: "Experience the breathtaking beauty of Ireland's cliffs.",
+<<<<<<< HEAD
                   image: "/assets/imgs/daytrips/CliffsofMoher.webp", // Zdjęcie: wyszukaj "cliffs of moher scenic view" na Adobe Stock
+=======
+                  image: "/assets/imgs/daytrips/CliffsofMoher.WebP", 
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   href: "/trips/cliffs-of-moher",
                 },
                 {
                   id: 2,
                   title: "Glendalough & Powerscourt",
                   description: "Explore serene landscapes and historic gardens.",
+<<<<<<< HEAD
                   image: "/assets/imgs/daytrips/Glendalough.webp", // Zdjęcie: wyszukaj "Glendalough valley Ireland" na Adobe Stock
+=======
+                  image: "/assets/imgs/daytrips/Glendalough.WebP", 
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   href: "/trips/glendalough-and-powerscourt",
                 },
                 {
                   id: 3,
                   title: "Giant’s Causeway",
                   description: "Marvel at the natural beauty of this UNESCO heritage site.",
+<<<<<<< HEAD
                   image: "/assets/imgs/daytrips/Giant’sCauseway.webp", // Zdjęcie: wyszukaj "giant's causeway natural beauty" na Adobe Stock
+=======
+                  image: "/assets/imgs/daytrips/Giant’sCauseway.png", // Zdjęcie: wyszukaj "giant's causeway natural beauty" na Adobe Stock
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   href: "/trips/giants-causeway",
                 },
                 {
@@ -101,7 +117,11 @@ export default function DayTrips() {
                   title: "Waterford & Kilkenny",
                   description:
                     "Discover the charm of Kilkenny and Waterford.",
+<<<<<<< HEAD
                   image: "/assets/imgs/Waterford.webp",
+=======
+                  image: "/assets/imgs/Waterford.WebP",
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   href: "/trips/waterford-kilkenny",
                 },
                 {
@@ -109,7 +129,11 @@ export default function DayTrips() {
                   title: "Blarney Castle",
                   description:
                     "Explore Ireland’s historical gems in one day.",
+<<<<<<< HEAD
                   image: "/assets/imgs/Blarney Castle.webp",
+=======
+                  image: "/assets/imgs/Blarney Castle.WebP",
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   href: "/trips/Blarney-Castle",
                 },
                 {
@@ -117,7 +141,11 @@ export default function DayTrips() {
                   title: "Castle South and Southwest",
                   description:
                     "Journey through castles in Southern Ireland.",
+<<<<<<< HEAD
                   image: "/assets/imgs/Castle South and Southwest.webp",
+=======
+                  image: "/assets/imgs/Castle South and Southwest.WebP",
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   href: "/trips/CastleSouthandSouthwest",
                 },
                 {
@@ -125,7 +153,11 @@ export default function DayTrips() {
                               title: "Ancient & Medieval Wonders",
                               description:
                                 "A day trip through Ireland’s North West.",
+<<<<<<< HEAD
                               image: "/assets/imgs/Ancient & Medieval Wonders.webp",
+=======
+                              image: "/assets/imgs/Ancient & Medieval Wonders.WebP",
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                               href: "/trips/AncientandMedievalWonders",
                             },
 

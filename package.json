@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "luxridewww",
+=======
+  "name": "viptransfer",
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -14,7 +18,10 @@
     "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "bootstrap": "^5.3.3",
+<<<<<<< HEAD
     "emailjs-com": "^3.2.0",
+=======
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
     "next": "14.2.18",
     "react": "18.2.0",
     "react-countdown": "^2.3.6",
@@ -31,6 +38,13 @@
     "eslint": "8.49.0",
     "eslint-config-next": "14.2.18",
     "postcss": "^8.4.49",
+<<<<<<< HEAD
     "tailwindcss": "^3.4.16"
   }
 }
+=======
+    "tailwindcss": "^3.4.16",
+    "sass": "^1.69.5"
+  }
+}
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48

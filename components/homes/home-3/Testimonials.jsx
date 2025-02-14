@@ -40,7 +40,11 @@ export default function PrivateChauffeur() {
                 <Image
                   width={600}
                   height={400}
+<<<<<<< HEAD
                   src="/assets/imgs/PrivateChauffeur.webp"
+=======
+                  src="/assets/imgs/PrivateChauffeur.png"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Private Chauffeur"
                   className="rounded-lg"
                 />
@@ -60,7 +64,11 @@ export default function PrivateChauffeur() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                      src="/assets/imgs/LuxuryVehicles.webp"
+=======
+                     src="/assets/imgs/LuxuryVehicles.png"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Luxury Vehicles"
                   className="mb-20"
                 />
@@ -73,7 +81,11 @@ export default function PrivateChauffeur() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/ProfessionalChauffeurs.webp"
+=======
+                  src="/assets/imgs/ProfessionalChauffeurs.png"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Professional Chauffeurs"
                   className="mb-20"
                 />
@@ -87,7 +99,11 @@ export default function PrivateChauffeur() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/TailoredExperience.webp"
+=======
+                  src="/assets/imgs/TailoredExperience.png"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Tailored Experience"
                   className="mb-20"
                 />

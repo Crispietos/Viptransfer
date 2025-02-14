@@ -38,7 +38,11 @@ export default function WeddingTransfers() {
                 <Image
                   width={600}
                   height={400}
+<<<<<<< HEAD
                   src="/assets/imgs/daytrips/WeddingTransfers.webp"
+=======
+                  src="/assets/imgs/daytrips/WeddingTransfers.png"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Wedding Transfers"
                   className="rounded-lg"
                 />
@@ -58,7 +62,11 @@ export default function WeddingTransfers() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/LuxuryWeddingCar.webp" // Zdjęcie: "luxury car for weddings", ozdobiony samochód, romantyczna atmosfera
+=======
+                  src="/assets/imgs/LuxuryWeddingCar.WebP" 
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Luxury Wedding Car"
                   className="mb-20"
                 />
@@ -71,7 +79,11 @@ export default function WeddingTransfers() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/ProfessionalDrivers.webp" // Zdjęcie: "professional chauffeur for weddings", kierowca w garniturze przy samochodzie
+=======
+                  src="/assets/imgs/ProfessionalDrivers.WebP" // Zdjęcie: "professional chauffeur for weddings", kierowca w garniturze przy samochodzie
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Professional Drivers"
                   className="mb-20"
                 />
@@ -84,7 +96,11 @@ export default function WeddingTransfers() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/WeddingPersonalization.webp" // Zdjęcie: "personalized wedding transport", para młoda w samochodzie
+=======
+                  src="/assets/imgs/WeddingPersonalization.png" // Zdjęcie: "personalized wedding transport", para młoda w samochodzie
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Personalized Experience"
                   className="mb-20"
                 />
@@ -108,7 +124,11 @@ export default function WeddingTransfers() {
                 <Image
                   width={350}
                   height={200}
+<<<<<<< HEAD
                   src="/assets/imgs/DublinWedding.webp" // Zdjęcie: "Dublin wedding location", elegancki kościół lub luksusowy hotel
+=======
+                  src="/assets/imgs/DublinWedding.WebP" // Zdjęcie: "Dublin wedding location", elegancki kościół lub luksusowy hotel
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Dublin Weddings"
                   className="rounded-lg mb-20"
                 />
@@ -121,7 +141,11 @@ export default function WeddingTransfers() {
                 <Image
                   width={350}
                   height={200}
+<<<<<<< HEAD
                   src="/assets/imgs/CastleWedding.webp" // Zdjęcie: "Ireland castle wedding", zamki w Irlandii, romantyczny klimat
+=======
+                  src="/assets/imgs/CastleWedding.png" // Zdjęcie: "Ireland castle wedding", zamki w Irlandii, romantyczny klimat
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Castle Weddings"
                   className="rounded-lg mb-20"
                 />
@@ -134,7 +158,11 @@ export default function WeddingTransfers() {
                 <Image
                   width={350}
                   height={200}
+<<<<<<< HEAD
                   src="/assets/imgs/CoastalWedding.webp" // Zdjęcie: "coastal wedding Ireland", plaża z widokiem na ocean
+=======
+                  src="/assets/imgs/CoastalWedding.png" // Zdjęcie: "coastal wedding Ireland", plaża z widokiem na ocean
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Coastal Weddings"
                   className="rounded-lg mb-20"
                 />

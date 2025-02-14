@@ -40,7 +40,11 @@ export default function GolfResortTransfers() {
                 <Image
                   width={600}
                   height={400}
+<<<<<<< HEAD
                   src="/assets/imgs/GolfResortMain.webp" // Zdjęcie: "Luxury golf transport Ireland"
+=======
+                  src="/assets/imgs/GolfResortMain.png" // Zdjęcie: "Luxury golf transport Ireland"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Golf Resort Transfers"
                   className="rounded-lg"
                 />
@@ -60,7 +64,11 @@ export default function GolfResortTransfers() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/BallybunionGolf.webp" // Zdjęcie: "Ballybunion golf resort"
+=======
+                  src="/assets/imgs/BallybunionGolf.png" // Zdjęcie: "Ballybunion golf resort"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Ballybunion Golf Club"
                   className="mb-20"
                 />
@@ -73,7 +81,11 @@ export default function GolfResortTransfers() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/LahinchGolf.webp" // Zdjęcie: "Lahinch golf course"
+=======
+                  src="/assets/imgs/LahinchGolf.WebP" 
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Lahinch Golf Club"
                   className="mb-20"
                 />
@@ -86,7 +98,11 @@ export default function GolfResortTransfers() {
                 <Image
                   width={100}
                   height={100}
+<<<<<<< HEAD
                   src="/assets/imgs/PortmarnockGolf.webp" // Zdjęcie: "Portmarnock golf resort"
+=======
+                  src="/assets/imgs/PortmarnockGolf.png" // Zdjęcie: "Portmarnock golf resort"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Portmarnock Golf Club"
                   className="mb-20"
                 />
@@ -112,7 +128,11 @@ export default function GolfResortTransfers() {
                 <Image
                   width={350}
                   height={200}
+<<<<<<< HEAD
                   src="/assets/imgs/AdareManor.webp" // Zdjęcie: "Adare Manor golf resort"
+=======
+                  src="/assets/imgs/AdareManor.WebP" // Zdjęcie: "Adare Manor golf resort"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Adare Manor"
                   className="rounded-lg mb-20"
                 />
@@ -125,7 +145,11 @@ export default function GolfResortTransfers() {
                 <Image
                   width={350}
                   height={200}
+<<<<<<< HEAD
                   src="/assets/imgs/OldHeadGolf.webp" // Zdjęcie: "Old Head golf resort Ireland"
+=======
+                  src="/assets/imgs/OldHeadGolf.png" // Zdjęcie: "Old Head golf resort Ireland"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="Old Head Golf Links"
                   className="rounded-lg mb-20"
                 />
@@ -138,7 +162,11 @@ export default function GolfResortTransfers() {
                 <Image
                   width={350}
                   height={200}
+<<<<<<< HEAD
                   src="/assets/imgs/KClub.webp" // Zdjęcie: "The K Club golf Ireland"
+=======
+                  src="/assets/imgs/KClub.WebP"
+>>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
                   alt="The K Club"
                   className="rounded-lg mb-20"
                 />
