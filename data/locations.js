@@ -1,8 +1,8 @@
 export const locations = [
   // Cities
-<<<<<<< HEAD
+
   
-=======
+
   {
     id: 1,
     icon: "/assets/imgs/page/homepage1/city.png",
@@ -10,7 +10,7 @@ export const locations = [
     location: "Dublin, Ireland",
     price: "€240",
   },
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
   {
     id: 2,
     icon: "/assets/imgs/page/homepage1/city.png",

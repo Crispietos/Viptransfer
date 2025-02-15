@@ -38,11 +38,11 @@ export default function CityTours() {
                 <Image
                   width={600}
                   height={400}
-<<<<<<< HEAD
+
                   src="/assets/imgs/CityToursMain.webp" // Zdjęcie: "Dublin city tour", widok miasta, architektura
-=======
+
                   src="/assets/imgs/CityToursMain.png" // Zdjęcie: "Dublin city tour", widok miasta, architektura
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
                   alt="City Tours"
                   className="rounded-lg"
                 />
@@ -62,11 +62,11 @@ export default function CityTours() {
                 <Image
                   width={100}
                   height={100}
-<<<<<<< HEAD
+
                   src="/assets/imgs/DublinHighlights.webp" // Zdjęcie: "Dublin landmarks", Temple Bar, Trinity College
-=======
+
                   src="/assets/imgs/DublinHighlights.WebP" 
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
                   alt="Dublin Highlights"
                   className="mb-20"
                 />
@@ -79,11 +79,11 @@ export default function CityTours() {
                 <Image
                   width={100}
                   height={100}
-<<<<<<< HEAD
+
                   src="/assets/imgs/CorkCulture.webp" // Zdjęcie: "Cork city tour", kultura, muzea
-=======
+
                   src="/assets/imgs/CorkCulture.png" // Zdjęcie: "Cork city tour", kultura, muzea
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
                   alt="Cork Culture"
                   className="mb-20"
                 />
@@ -96,11 +96,11 @@ export default function CityTours() {
                 <Image
                   width={100}
                   height={100}
-<<<<<<< HEAD
+
                   src="/assets/imgs/GalwayExperience.webp" // Zdjęcie: "Galway city tour", uliczki, festiwale
-=======
+
                   src="/assets/imgs/GalwayExperience.WebP"
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
                   alt="Galway Experience"
                   className="mb-20"
                 />
@@ -124,11 +124,11 @@ export default function CityTours() {
                 <Image
                   width={350}
                   height={200}
-<<<<<<< HEAD
+
                   src="/assets/imgs/DublinCity.webp" // Zdjęcie: "Dublin city view", most Ha'penny, widok nocą
-=======
+
                   src="/assets/imgs/DublinCity.png" // Zdjęcie: "Dublin city view", most Ha'penny, widok nocą
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
                   alt="Dublin"
                   className="rounded-lg mb-20"
                 />
@@ -141,11 +141,11 @@ export default function CityTours() {
                 <Image
                   width={350}
                   height={200}
-<<<<<<< HEAD
+
                   src="/assets/imgs/CorkCity.webp" // Zdjęcie: "Cork city view", kolorowe budynki, spokojny klimat
-=======
+
                   src="/assets/imgs/CorkCity.png" // Zdjęcie: "Cork city view", kolorowe budynki, spokojny klimat
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
                   alt="Cork"
                   className="rounded-lg mb-20"
                 />
@@ -158,11 +158,11 @@ export default function CityTours() {
                 <Image
                   width={350}
                   height={200}
-<<<<<<< HEAD
+
                   src="/assets/imgs/GalwayCity.webp" // Zdjęcie: "Galway city view", uliczki, nadbrzeże
-=======
+
                   src="/assets/imgs/GalwayCity.png" // Zdjęcie: "Galway city view", uliczki, nadbrzeże
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
                   alt="Galway"
                   className="rounded-lg mb-20"
                 />

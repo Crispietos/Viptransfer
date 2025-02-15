@@ -1,9 +1,9 @@
 "use client";
-import DatePickerComponent from "@/components/common/DatePicker";
-import DatePicker from "@/components/common/DatePicker";
+import DatePickerComponent from "@/components/common/DatePickerComponent";
+import DatePicker from "@/components/common/DatePickerComponent";
 import PlacePicker from "@/components/common/PlacePicker";
-import TimePickerComponent from "@/components/common/TimePicker";
-import TimePicker from "@/components/common/TimePicker";
+import TimePickerComponent from "@/components/common/TimePickerComponent";
+import TimePicker from "@/components/common/TimePickerComponent";
 import Image from "next/image";
 import React, { useState } from "react";
 import ModalVideo from "react-modal-video";

@@ -1,7 +1,7 @@
 "use client";
-import DatePickerComponent from "@/components/common/DatePicker";
+import DatePickerComponent from "@/components/common/DatePickerComponent";
 import PlacePicker from "@/components/common/PlacePicker";
-import TimePickerComponent from "@/components/common/TimePicker";
+import TimePickerComponent from "@/components/common/TimePickerComponent";
 import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";

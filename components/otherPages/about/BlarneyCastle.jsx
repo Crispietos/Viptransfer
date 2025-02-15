@@ -25,11 +25,11 @@ export default function BlarneyCastleTrip() {
         <section className="section pt-0 pb-60">
           <div className="container-sub">
             <Image
-<<<<<<< HEAD
+
               src="/assets/imgs/Blarney Castle.webp"
-=======
+
               src="/assets/imgs/Blarney Castle.WebP"
->>>>>>> 7012cbbba02a1f378d7165a6689f996eb7f88a48
+ 
               width={1200}
               height={700}
               alt="Blarney Castle"
