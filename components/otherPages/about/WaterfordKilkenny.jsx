@@ -29,7 +29,7 @@ export default function WaterfordKilkennyTrip() {
 
               src="/assets/imgs/Waterford.webp"
 
-              src="/assets/imgs/Waterford.WebP"
+            
  
               width={1200}
               height={700}

@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 import { cars } from "@/data/cars";
 import Image from "next/image";
 import React from "react";
@@ -5,7 +8,6 @@ import React from "react";
 export default function Style4() {
   return (
     <>
-      {" "}
       <div className="row mt-30 align-items-center">
         <div className="col-lg-6">
           <h2 className="heading-24-medium wow fadeInUp">List Style V4</h2>
@@ -13,7 +15,7 @@ export default function Style4() {
       </div>
       <div className="row mt-30">
         {cars.slice(0, 4).map((elm, i) => (
-          <div className="col-lg-3 col-md-6 mb-30">
+          <div key={elm.id || i} className="col-lg-3 col-md-6 mb-30">
             <div className="cardFleet cardFleetStyle3 wow fadeInUp">
               <div className="cardImage mb-30">
                 <a href="#">

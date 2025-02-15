@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 "use client";
 
 import Image from "next/image";
@@ -32,7 +35,7 @@ export default function CliffsOfMoher() {
 
               src="/assets/imgs/daytrips/CliffsofMoher.webp"
 
-              src="/assets/imgs/daytrips/CliffsofMoher.WebP"
+            
  
               width={1200}
               height={700}

@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 import { faqs } from "@/data/faq";
 
 export default function Faq() {

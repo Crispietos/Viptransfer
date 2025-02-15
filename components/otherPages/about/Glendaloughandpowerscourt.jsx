@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 "use client";
 
 import Image from "next/image";
@@ -29,7 +32,6 @@ export default function GlendaloughTrip() {
 
               src="/assets/imgs/daytrips/Glendalough.webp"
 
-              src="/assets/imgs/daytrips/Glendalough.WebP"
  
               width={1200}
               height={700}

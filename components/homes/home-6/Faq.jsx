@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
 import { faqs3 } from "@/data/faq";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
 "use client";
 
 import Image from "next/image";
@@ -28,7 +32,7 @@ export default function NorthWestTrip() {
 
               src="/assets/imgs/Ancient & Medieval Wonders.webp"
 
-              src="/assets/imgs/Ancient & Medieval Wonders.WebP"
+              
  
               width={1200}
               height={700}

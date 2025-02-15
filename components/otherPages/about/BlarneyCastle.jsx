@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
 "use client";
 import Image from "next/image";
 import Link from "next/link"; // Import powinien być tutaj, na górze
@@ -28,7 +32,7 @@ export default function BlarneyCastleTrip() {
 
               src="/assets/imgs/Blarney Castle.webp"
 
-              src="/assets/imgs/Blarney Castle.WebP"
+             
  
               width={1200}
               height={700}

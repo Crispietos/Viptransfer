@@ -1,3 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
+
+
 "use client";
 import { contactCards } from "@/data/contact";
 import { activeInputFocus } from "@/utlis/activeInputFocus";

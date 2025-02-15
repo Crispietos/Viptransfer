@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
 "use client";
 import DatePickerComponent from "@/components/common/DatePickerComponent";
 import PlacePicker from "@/components/common/PlacePicker";

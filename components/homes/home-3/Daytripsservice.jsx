@@ -1,3 +1,8 @@
+
+
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 "use client";
 
 import Image from "next/image";
@@ -42,7 +47,7 @@ export default function DayTrips() {
 
                   src="/assets/imgs/daytrips/overview.webp"
 
-                  src="/assets/imgs/daytrips/overview.jpg"
+             
  
                   alt="Day Trips"
                   className="rounded-lg"

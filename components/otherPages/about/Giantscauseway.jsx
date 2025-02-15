@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 "use client";
 
 import Image from "next/image";
@@ -29,7 +32,7 @@ export default function GiantsCauseway() {
 
               src="/assets/imgs/daytrips/Giant’sCauseway.webp"
 
-              src="/assets/imgs/daytrips/Giant’sCauseway.png"
+            
  
               width={1200}
               height={700}

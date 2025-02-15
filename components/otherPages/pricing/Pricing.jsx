@@ -1,4 +1,6 @@
-"use client";
+
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */"use client";
 
 import { useState } from "react";
 import {

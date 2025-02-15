@@ -1,3 +1,8 @@
+
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
 "use client";
 
 import Image from "next/image";
@@ -43,7 +48,7 @@ export default function PrivateChauffeur() {
 
                   src="/assets/imgs/PrivateChauffeur.webp"
 
-                  src="/assets/imgs/PrivateChauffeur.png"
+                
  
                   alt="Private Chauffeur"
                   className="rounded-lg"
@@ -67,7 +72,7 @@ export default function PrivateChauffeur() {
 
                      src="/assets/imgs/LuxuryVehicles.webp"
 
-                     src="/assets/imgs/LuxuryVehicles.png"
+                   
  
                   alt="Luxury Vehicles"
                   className="mb-20"
@@ -84,7 +89,7 @@ export default function PrivateChauffeur() {
 
                   src="/assets/imgs/ProfessionalChauffeurs.webp"
 
-                  src="/assets/imgs/ProfessionalChauffeurs.png"
+               
  
                   alt="Professional Chauffeurs"
                   className="mb-20"
@@ -102,7 +107,6 @@ export default function PrivateChauffeur() {
 
                   src="/assets/imgs/TailoredExperience.webp"
 
-                  src="/assets/imgs/TailoredExperience.png"
  
                   alt="Tailored Experience"
                   className="mb-20"

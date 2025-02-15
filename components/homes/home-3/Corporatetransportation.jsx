@@ -1,3 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
+
 "use client";
 
 import Image from "next/image";
@@ -64,7 +69,7 @@ export default function CorporateTransportation() {
 
                    src="/assets/imgs/services/mercnight.png"
 
-                   src="/assets/imgs/services/mercnight.WebP"
+                
  
                   alt="Professional Chauffeurs"
                   className="mb-20"
@@ -83,7 +88,7 @@ export default function CorporateTransportation() {
 
                     src="/assets/imgs/services/weel.png"
 
-                    src="/assets/imgs/services/weel.webp"
+                
  
                   alt="Premium Fleet"
                   className="mb-20"

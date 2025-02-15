@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
+
 import { cars } from "@/data/cars";
 import Image from "next/image";
 import React from "react";

@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 "use client";
 
 import Image from "next/image";
@@ -41,7 +44,7 @@ export default function CityTours() {
 
                   src="/assets/imgs/CityToursMain.webp" // Zdjęcie: "Dublin city tour", widok miasta, architektura
 
-                  src="/assets/imgs/CityToursMain.png" // Zdjęcie: "Dublin city tour", widok miasta, architektura
+                 
  
                   alt="City Tours"
                   className="rounded-lg"
@@ -65,7 +68,7 @@ export default function CityTours() {
 
                   src="/assets/imgs/DublinHighlights.webp" // Zdjęcie: "Dublin landmarks", Temple Bar, Trinity College
 
-                  src="/assets/imgs/DublinHighlights.WebP" 
+                
  
                   alt="Dublin Highlights"
                   className="mb-20"
@@ -82,7 +85,7 @@ export default function CityTours() {
 
                   src="/assets/imgs/CorkCulture.webp" // Zdjęcie: "Cork city tour", kultura, muzea
 
-                  src="/assets/imgs/CorkCulture.png" // Zdjęcie: "Cork city tour", kultura, muzea
+                 
  
                   alt="Cork Culture"
                   className="mb-20"
@@ -99,7 +102,7 @@ export default function CityTours() {
 
                   src="/assets/imgs/GalwayExperience.webp" // Zdjęcie: "Galway city tour", uliczki, festiwale
 
-                  src="/assets/imgs/GalwayExperience.WebP"
+              
  
                   alt="Galway Experience"
                   className="mb-20"
@@ -127,7 +130,7 @@ export default function CityTours() {
 
                   src="/assets/imgs/DublinCity.webp" // Zdjęcie: "Dublin city view", most Ha'penny, widok nocą
 
-                  src="/assets/imgs/DublinCity.png" // Zdjęcie: "Dublin city view", most Ha'penny, widok nocą
+                 
  
                   alt="Dublin"
                   className="rounded-lg mb-20"
@@ -144,7 +147,7 @@ export default function CityTours() {
 
                   src="/assets/imgs/CorkCity.webp" // Zdjęcie: "Cork city view", kolorowe budynki, spokojny klimat
 
-                  src="/assets/imgs/CorkCity.png" // Zdjęcie: "Cork city view", kolorowe budynki, spokojny klimat
+                 
  
                   alt="Cork"
                   className="rounded-lg mb-20"
@@ -161,7 +164,7 @@ export default function CityTours() {
 
                   src="/assets/imgs/GalwayCity.webp" // Zdjęcie: "Galway city view", uliczki, nadbrzeże
 
-                  src="/assets/imgs/GalwayCity.png" // Zdjęcie: "Galway city view", uliczki, nadbrzeże
+                
  
                   alt="Galway"
                   className="rounded-lg mb-20"

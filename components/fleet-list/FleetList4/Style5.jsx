@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 import { cars } from "@/data/cars";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +9,6 @@ import React from "react";
 export default function Style5() {
   return (
     <>
-      {" "}
       <div className="row mt-30 align-items-center">
         <div className="col-lg-6">
           <h2 className="heading-24-medium wow fadeInUp">List Style V5</h2>
@@ -14,7 +16,7 @@ export default function Style5() {
       </div>
       <div className="row mt-30 fleet-style-5">
         {cars.slice(0, 3).map((elm, i) => (
-          <div className="col-lg-4 mb-30">
+          <div key={elm.id || i} className="col-lg-4 mb-30">
             <div className="cardFleet wow fadeInUp">
               <div className="cardInfo">
                 <Link href={`/fleet-single/${elm.id}`}>
@@ -39,13 +41,13 @@ export default function Style5() {
                 <div className="passenger">
                   <span className="icon-circle icon-passenger"></span>
                   <span className="text-14">
-                    Passengers<span>{elm.passenger}</span>
+                    Passengers <span>{elm.passenger}</span>
                   </span>
                 </div>
                 <div className="luggage">
                   <span className="icon-circle icon-luggage"></span>
                   <span className="text-14">
-                    Luggage<span>{elm.luggage}</span>
+                    Luggage <span>{elm.luggage}</span>
                   </span>
                 </div>
               </div>

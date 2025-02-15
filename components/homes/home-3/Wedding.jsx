@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-duplicate-props */
+
 "use client";
 
 import Image from "next/image";
@@ -41,7 +44,6 @@ export default function WeddingTransfers() {
 
                   src="/assets/imgs/daytrips/WeddingTransfers.webp"
 
-                  src="/assets/imgs/daytrips/WeddingTransfers.png"
  
                   alt="Wedding Transfers"
                   className="rounded-lg"
@@ -65,7 +67,7 @@ export default function WeddingTransfers() {
 
                   src="/assets/imgs/LuxuryWeddingCar.webp" // Zdjęcie: "luxury car for weddings", ozdobiony samochód, romantyczna atmosfera
 
-                  src="/assets/imgs/LuxuryWeddingCar.WebP" 
+                 
  
                   alt="Luxury Wedding Car"
                   className="mb-20"
@@ -82,7 +84,7 @@ export default function WeddingTransfers() {
 
                   src="/assets/imgs/ProfessionalDrivers.webp" // Zdjęcie: "professional chauffeur for weddings", kierowca w garniturze przy samochodzie
 
-                  src="/assets/imgs/ProfessionalDrivers.WebP" // Zdjęcie: "professional chauffeur for weddings", kierowca w garniturze przy samochodzie
+                 
  
                   alt="Professional Drivers"
                   className="mb-20"
@@ -99,7 +101,6 @@ export default function WeddingTransfers() {
 
                   src="/assets/imgs/WeddingPersonalization.webp" // Zdjęcie: "personalized wedding transport", para młoda w samochodzie
 
-                  src="/assets/imgs/WeddingPersonalization.png" // Zdjęcie: "personalized wedding transport", para młoda w samochodzie
  
                   alt="Personalized Experience"
                   className="mb-20"
@@ -127,7 +128,7 @@ export default function WeddingTransfers() {
 
                   src="/assets/imgs/DublinWedding.webp" // Zdjęcie: "Dublin wedding location", elegancki kościół lub luksusowy hotel
 
-                  src="/assets/imgs/DublinWedding.WebP" // Zdjęcie: "Dublin wedding location", elegancki kościół lub luksusowy hotel
+
  
                   alt="Dublin Weddings"
                   className="rounded-lg mb-20"
@@ -144,7 +145,7 @@ export default function WeddingTransfers() {
 
                   src="/assets/imgs/CastleWedding.webp" // Zdjęcie: "Ireland castle wedding", zamki w Irlandii, romantyczny klimat
 
-                  src="/assets/imgs/CastleWedding.png" // Zdjęcie: "Ireland castle wedding", zamki w Irlandii, romantyczny klimat
+                 
  
                   alt="Castle Weddings"
                   className="rounded-lg mb-20"
@@ -161,7 +162,7 @@ export default function WeddingTransfers() {
 
                   src="/assets/imgs/CoastalWedding.webp" // Zdjęcie: "coastal wedding Ireland", plaża z widokiem na ocean
 
-                  src="/assets/imgs/CoastalWedding.png" // Zdjęcie: "coastal wedding Ireland", plaża z widokiem na ocean
+                  
  
                   alt="Coastal Weddings"
                   className="rounded-lg mb-20"
