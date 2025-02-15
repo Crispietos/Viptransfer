@@ -1,3 +1,4 @@
+
 import Footer9 from "@/components/footers/Footer9";
 import Header2 from "@/components/headers/Header2";
 // import Blogs from "@/components/homes/common/blogs/Blogs2"; // Usunięty komponent Blogs

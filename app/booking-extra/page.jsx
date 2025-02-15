@@ -1,3 +1,5 @@
+
+
 import BookingExtra from "@/components/booking/BookingExtra";
 import BookingTab from "@/components/booking/BookingTab";
 import Footer1 from "@/components/footers/Footer1";

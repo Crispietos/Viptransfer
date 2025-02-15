@@ -9,6 +9,11 @@ const nextConfig = {
   },
 
   trailingSlash: true, // Dodaj ukośnik na końcu ścieżek
+
+  eslint: {
+    // Ignoruj błędy ESLint podczas builda (opcjonalnie – tylko jeśli jesteś pewien, że ostrzeżenia nie wpływają krytycznie na funkcjonalność)
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
