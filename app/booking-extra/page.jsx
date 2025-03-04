@@ -1,5 +1,4 @@
-
-
+import { Suspense } from "react";
 import BookingExtra from "@/components/booking/BookingExtra";
 import BookingTab from "@/components/booking/BookingTab";
 import Footer1 from "@/components/footers/Footer1";
@@ -13,15 +12,18 @@ export const metadata = {
     "Lixride Chauffeur Limousine Transport and Car Hire Nextjs Template",
 };
 
-export default function page() {
+export default function Page() {
   return (
     <>
-      <Header1 /> <MobailHeader1 />
+      <Header1 />
+      <MobailHeader1 />
       <main className="main">
         <section className="section">
           <div className="container-sub">
             <BookingTab />
-            <BookingExtra />
+            <Suspense fallback={<div>Loading booking extra...</div>}>
+              <BookingExtra />
+            </Suspense>
           </div>
         </section>
       </main>
