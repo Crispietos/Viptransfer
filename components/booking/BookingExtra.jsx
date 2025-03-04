@@ -1,36 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import Script from "next/script";
-import Link from "next/link";
-
+import dynamic from "next/dynamic";
 import SideBar from "./SideBar";
-import { activeInputFocus } from "@/utlis/activeInputFocus";
-import DatePickerComponent from "@/components/common/DatePickerComponent"; // Upewnij się, że plik istnieje
-import TimePickerComponent from "@/components/common/TimePickerComponent";   // Upewnij się, że plik istnieje
-import GooglePlacePicker from "@/components/common/GooglePlacePicker";       // Upewnij się, że plik istnieje
+import MapModal from "./MapModal"; // Plik MapModal.jsx powinien być w tym samym folderze
 
-// Lista darmowych dodatków (extras)
-const quantityItem = [
-  { id: 1, name: "Child Seat", price: 0, description: "Suitable for toddlers weighing 0-18 kg.", quantity: 0 },
-  { id: 2, name: "Booster Seat", price: 0, description: "Suitable for children weighing 15-36 kg.", quantity: 0 },
-  { id: 3, name: "Vodka Bottle", price: 0, description: "Absolut Vodka 0.7l Bottle", quantity: 0 },
-  { id: 4, name: "Bouquet of Flowers", price: 0, description: "A bouquet of seasonal flowers.", quantity: 0 },
-];
+// Dynamiczne importy (DatePicker, TimePicker)
+const DatePickerComponent = dynamic(() => import("@/components/common/DatePicker"), { ssr: false });
+const TimePickerComponent = dynamic(() => import("@/components/common/TimePicker"), { ssr: false });
 
-// Klucz Google Maps (używany do autouzupełniania adresów)
+// Klucz Google
 const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 console.log("📌 Google API Key:", GOOGLE_API_KEY);
 
-// Obrazki pojazdów
-const vehicleImages = {
-  Business: "/assets/imgs/E-Class.png",
-  First: "/assets/imgs/s-class.webp",
-  MPV: "/assets/imgs/MercedesBenzV-Class.png",
-};
+// Lista extras
+const extrasList = [
+  { id: 1, name: "Child Seat", description: "0-18 kg", selected: false },
+  { id: 2, name: "Booster Seat", description: "15-36 kg", selected: false },
+  { id: 3, name: "Vodka Bottle", description: "Absolut 0.7l", selected: false },
+  { id: 4, name: "Bouquet of Flowers", description: "Seasonal", selected: false },
+];
 
-// Funkcja wyliczająca ceny na podstawie dystansu (wszystko w euro)
+// Funkcja obliczająca stawki
 const calculateFares = (distance) => {
   let rates;
   if (distance > 250) {
@@ -56,64 +48,104 @@ const calculateFares = (distance) => {
   };
 };
 
+// Obrazy pojazdów
+const vehicleImages = {
+  Business: "/assets/imgs/E-Class.png",
+  First: "/assets/imgs/s-class.webp",
+  MPV: "/assets/imgs/MercedesBenzV-Class.png",
+};
+
 export default function BookingExtra() {
-  // Odczyt parametrów z URL (przekazywanych z pierwszego kroku, np. z Hero)
-  const searchParams = useSearchParams();
-  const dateParam = searchParams.get("date") || "";
-  const timeParam = searchParams.get("time") || "";
-  const pickupParam = searchParams.get("pickup") || "";
-  const dropoffParam = searchParams.get("dropoff") || "";
-
-  // Stan formularza
-  const [quantityItems, setQuantityItems] = useState(quantityItem);
-
-  // Data i czas – edytowalne, inicjowane wartością z URL
-  const [selectedDate, setSelectedDate] = useState(dateParam);
-  const [selectedTime, setSelectedTime] = useState(timeParam);
-
-  // Lokalizacje
-  const [pickup, setPickup] = useState(pickupParam);
-  const [dropoff, setDropoff] = useState(dropoffParam);
-
-  // Dystans, stawki, wybrany pojazd
+  // --- STANY ---
+  const [pickup, setPickup] = useState("");
+  const [dropoff, setDropoff] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
   const [distance, setDistance] = useState(null);
   const [fares, setFares] = useState(null);
   const [selectedVehicle, setSelectedVehicle] = useState(null);
-
-  // Return Trip
   const [returnTrip, setReturnTrip] = useState(false);
+  const [showMap, setShowMap] = useState(false); // <-- Hook umieszczony wewnątrz komponentu
 
-  // Aktualizacja stanu, gdy parametry URL się zmienią
+  // Extras
+  const [extras, setExtras] = useState(extrasList);
+
+  // Dane pasażera
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [flightNumber, setFlightNumber] = useState("");
+  const [passengers, setPassengers] = useState("");
+  const [luggage, setLuggage] = useState("");
+  const [notes, setNotes] = useState("");
+
+  // Czytanie parametrów z URL
   useEffect(() => {
-    setSelectedDate(dateParam);
-    setSelectedTime(timeParam);
-    setPickup(pickupParam);
-    setDropoff(dropoffParam);
-  }, [dateParam, timeParam, pickupParam, dropoffParam]);
-
-  // Inicjalizacja Google Autocomplete
-  useEffect(() => {
-    activeInputFocus();
-    if (window.google && window.google.maps) {
-      const input1 = document.getElementById("pickupLocation");
-      const autocompletePickup = new window.google.maps.places.Autocomplete(input1);
-      autocompletePickup.addListener("place_changed", () => {
-        const place = autocompletePickup.getPlace();
-        const address = place.formatted_address || place.name || "";
-        setPickup(address);
-      });
-
-      const input2 = document.getElementById("dropoffLocation");
-      const autocompleteDropoff = new window.google.maps.places.Autocomplete(input2);
-      autocompleteDropoff.addListener("place_changed", () => {
-        const place = autocompleteDropoff.getPlace();
-        const address = place.formatted_address || place.name || "";
-        setDropoff(address);
-      });
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setPickup(params.get("pickup") || "");
+      setDropoff(params.get("dropoff") || "");
+      setSelectedDate(params.get("date") || "");
+      setSelectedTime(params.get("time") || "");
     }
   }, []);
 
-  // Obliczanie dystansu
+  // Inicjalizacja Google Autocomplete (z ograniczeniem do Irlandii)
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.google &&
+      window.google.maps &&
+      window.google.maps.places
+    ) {
+      console.log("✅ Google Maps Places załadowane.");
+
+      const options = {
+        fields: ["formatted_address", "geometry", "name"],
+        types: ["geocode"],
+        componentRestrictions: { country: "IE" }, // Tylko Irlandia
+      };
+
+      // Pickup
+      const pickupInput = document.getElementById("pickupLocation");
+      if (pickupInput) {
+        const autocompletePickup = new window.google.maps.places.Autocomplete(
+          pickupInput,
+          options
+        );
+        autocompletePickup.addListener("place_changed", () => {
+          const place = autocompletePickup.getPlace();
+          const address = place.formatted_address || place.name || "";
+          console.log("Pickup selected:", address);
+          setPickup(address);
+        });
+      } else {
+        console.warn("❗ pickupLocation input not found in DOM");
+      }
+
+      // Dropoff
+      const dropoffInput = document.getElementById("dropoffLocation");
+      if (dropoffInput) {
+        const autocompleteDropoff = new window.google.maps.places.Autocomplete(
+          dropoffInput,
+          options
+        );
+        autocompleteDropoff.addListener("place_changed", () => {
+          const place = autocompleteDropoff.getPlace();
+          const address = place.formatted_address || place.name || "";
+          console.log("Dropoff selected:", address);
+          setDropoff(address);
+        });
+      } else {
+        console.warn("❗ dropoffLocation input not found in DOM");
+      }
+    } else {
+      console.log("⏳ Google Maps Places jeszcze nie załadowane.");
+    }
+  }, []);
+
+  // Funkcja obliczająca dystans
   const calculateDistance = () => {
     if (!pickup || !dropoff) {
       alert("Please enter both addresses.");
@@ -130,8 +162,7 @@ export default function BookingExtra() {
         if (status === "OK") {
           const distanceValue = response.rows[0].elements[0].distance.value / 1000;
           setDistance(distanceValue);
-          const calculatedFares = calculateFares(distanceValue);
-          setFares(calculatedFares);
+          setFares(calculateFares(distanceValue));
         } else {
           alert("Could not calculate distance. Status: " + status);
         }
@@ -139,35 +170,41 @@ export default function BookingExtra() {
     );
   };
 
-  // Łączny koszt (Return Trip uwzględniony)
+  // Całkowita cena (z ewentualnym powrotem)
   const totalFare =
     selectedVehicle && fares
-      ? fares[selectedVehicle] * (returnTrip ? 2 : 1)
+      ? Math.ceil(fares[selectedVehicle]) * (returnTrip ? 2 : 1)
       : 0;
+
+  // Obsługa finalna
+  const handleBooking = () => {
+    alert(`
+      Booking Info:
+      From: ${pickup}
+      To: ${dropoff}
+      Date: ${selectedDate}
+      Time: ${selectedTime}
+      Vehicle: ${selectedVehicle}
+      Return Trip: ${returnTrip ? "Yes" : "No"}
+      Extras: ${extras.filter(e => e.selected).map(e => e.name).join(", ")}
+      Passenger:
+        ${firstName} ${lastName}
+        Email: ${email}
+        Phone: ${phone}
+        Flight: ${flightNumber}
+        Passengers: ${passengers}
+        Luggage: ${luggage}
+      Notes: ${notes}
+      Total Fare: €${totalFare}
+    `);
+  };
 
   return (
     <div className="box-row-tab mt-50">
-      {/* Lewa strona – formularz */}
       <div className="box-tab-left">
-        <div className="box-content-detail">
-          <h3 className="heading-24-medium color-text mb-30">Book Your Ride</h3>
-          {/* Edytowalne pola daty i czasu */}
-          <div className="form-group">
-            <label className="form-label">Date</label>
-            <DatePickerComponent
-              value={selectedDate}
-              onChange={(val) => setSelectedDate(val)}
-            />
-          </div>
-          <div className="form-group mt-20">
-            <label className="form-label">Time</label>
-            <TimePickerComponent
-              value={selectedTime}
-              onChange={(val) => setSelectedTime(val)}
-            />
-          </div>
-          {/* Pickup */}
-          <div className="form-group mt-20">
+        {/* 1. Rząd: Pickup + Date */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+          <div style={{ flex: "1" }} className="form-group">
             <label className="form-label">Pickup Location</label>
             <input
               id="pickupLocation"
@@ -178,8 +215,28 @@ export default function BookingExtra() {
               onChange={(e) => setPickup(e.target.value)}
             />
           </div>
-          {/* Dropoff */}
-          <div className="form-group mt-20">
+
+          <div style={{ flex: "1" }} className="form-group">
+            <label className="form-label">Date</label>
+            <DatePickerComponent
+              value={selectedDate}
+              onChange={(dateObj) => {
+                if (dateObj instanceof Date && !isNaN(dateObj)) {
+                  const formatted = dateObj.toLocaleDateString("en-CA");
+                  setSelectedDate(formatted);
+                } else if (dateObj?.format) {
+                  setSelectedDate(dateObj.format("YYYY-MM-DD"));
+                } else {
+                  setSelectedDate(dateObj?.toString() || "");
+                }
+              }}
+            />
+          </div>
+        </div>
+
+        {/* 2. Rząd: Dropoff + Time */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "20px" }}>
+          <div style={{ flex: "1" }} className="form-group">
             <label className="form-label">Dropoff Location</label>
             <input
               id="dropoffLocation"
@@ -190,119 +247,462 @@ export default function BookingExtra() {
               onChange={(e) => setDropoff(e.target.value)}
             />
           </div>
-          {/* Przycisk obliczania ceny */}
-          <div className="col-lg-12 text-center mt-20">
-            <button type="button" className="btn btn-primary" onClick={calculateDistance}>
-              Calculate Price
-            </button>
-          </div>
-          {/* Wynik obliczeń */}
-          {distance && (
-            <div className="col-lg-12 text-center mt-4">
-              <p className="text-20">Distance: {distance} km</p>
-              {fares && (
-                <div className="fare-options flex flex-row flex-nowrap items-start justify-center gap-6 mt-6 mb-8" style={{ overflowX: "auto" }}>
-                  {/* Business */}
-                  <div className="fare-option flex flex-col items-center min-w-[120px]">
-                    <img src={vehicleImages.Business} alt="Business Class" className="fare-image mb-2" />
-                    <p>Business: €{fares.Business}</p>
-                    <button className="btn btn-secondary mt-2 text-sm px-3 py-2" onClick={() => setSelectedVehicle("Business")}>
-                      {selectedVehicle === "Business" ? "Selected" : "Select"}
-                    </button>
-                  </div>
-                  {/* First */}
-                  <div className="fare-option flex flex-col items-center min-w-[120px]">
-                    <img src={vehicleImages.First} alt="First Class" className="fare-image mb-2" />
-                    <p>First: €{fares.First}</p>
-                    <button className="btn btn-secondary mt-2 text-sm px-3 py-2" onClick={() => setSelectedVehicle("First")}>
-                      {selectedVehicle === "First" ? "Selected" : "Select"}
-                    </button>
-                  </div>
-                  {/* MPV */}
-                  <div className="fare-option flex flex-col items-center min-w-[120px]">
-                    <img src={vehicleImages.MPV} alt="MPV" className="fare-image mb-2" />
-                    <p>MPV: €{fares.MPV}</p>
-                    <button className="btn btn-secondary mt-2 text-sm px-3 py-2" onClick={() => setSelectedVehicle("MPV")}>
-                      {selectedVehicle === "MPV" ? "Selected" : "Select"}
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-          {/* Return Trip */}
-          {selectedVehicle && (
-            <div style={{ marginTop: "3rem", display: "flex", justifyContent: "center" }}>
-              <label style={{ display: "inline-flex", alignItems: "center", backgroundColor: "#f0f4ff", border: "1px solid #cce0ff", borderRadius: "0.5rem", padding: "1rem" }}>
-                <input type="checkbox" style={{ width: "1.5rem", height: "1.5rem" }} checked={returnTrip} onChange={(e) => setReturnTrip(e.target.checked)} />
-                <span style={{ marginLeft: "0.5rem", fontSize: "1.2rem", color: "#1e40af", fontWeight: "600" }}>
-                  Return Trip (double price)
-                </span>
-              </label>
-            </div>
-          )}
-          {/* Extras */}
-          <h3 className="heading-24-medium color-text mb-30 mt-40">Extra Options (Free)</h3>
-          <div className="list-extras">
-            {quantityItems.map((elm, i) => (
-              <div key={i} className="item-extra">
-                <div className="extra-info">
-                  <h5 className="text-20-medium color-text mb-5">
-                    {elm.name} <span className="price">Free</span>
-                  </h5>
-                  <p className="text-14 color-grey">{elm.description}</p>
-                </div>
-                <div className="extra-quantity">
-                  <span
-                    onClick={() =>
-                      setQuantityItems((prev) =>
-                        prev.map((item, index) =>
-                          index === i ? { ...item, quantity: Math.max(item.quantity - 1, 0) } : item
-                        )
-                      )
-                    }
-                    className="minus"
-                  ></span>
-                  <input className="form-control" type="text" value={elm.quantity} readOnly />
-                  <span
-                    onClick={() =>
-                      setQuantityItems((prev) =>
-                        prev.map((item, index) =>
-                          index === i ? { ...item, quantity: item.quantity + 1 } : item
-                        )
-                      )
-                    }
-                    className="plus"
-                  ></span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-30 mb-120">
-            <Link className="btn btn-primary btn-primary-big w-100" href="/booking-passenger">
-              Continue
-            </Link>
+
+          <div style={{ flex: "1" }} className="form-group">
+            <label className="form-label">Time</label>
+            <TimePickerComponent
+              value={
+                selectedTime
+                  ? new Date(`1970-01-01T${selectedTime}:00`)
+                  : null
+              }
+              onChange={(timeObj) => {
+                if (timeObj instanceof Date && !isNaN(timeObj)) {
+                  const timeFormatted = timeObj.toLocaleTimeString("en-GB", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  });
+                  setSelectedTime(timeFormatted);
+                } else if (timeObj?.format) {
+                  setSelectedTime(timeObj.format("HH:mm"));
+                } else {
+                  setSelectedTime(timeObj?.toString() || "");
+                }
+              }}
+            />
           </div>
         </div>
+
+        {/* Przycisk "Calculate Price" */}
+        <div className="col-lg-12 text-center mt-20">
+          <button
+            type="button"
+            onClick={calculateDistance}
+            style={{
+              width: "100%",
+              padding: "10px 20px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              color: "#fff",
+              fontWeight: "600",
+              background: "linear-gradient(to right, #232526, #414345)",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+              transition: "all 0.3s ease",
+            }}
+          >
+            Calculate Price
+          </button>
+        </div>
+
+        {/* Przycisk "Show Map" */}
+        <div className="col-lg-12 text-center mt-20">
+          <button
+            type="button"
+            onClick={() => setShowMap(true)}
+            style={{
+              width: "100%",
+              padding: "10px 20px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              color: "#fff",
+              fontWeight: "600",
+              background: "linear-gradient(to right, #232526, #414345)",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+              transition: "all 0.3s ease",
+              marginTop: "12px",
+            }}
+          >
+            Show Map
+          </button>
+        </div>
+
+        {/* Warunkowe wyświetlenie modala */}
+        {showMap && (
+          <MapModal
+            pickup={pickup}
+            dropoff={dropoff}
+            onClose={() => setShowMap(false)}
+          />
+        )}
+
+        {/* Jeśli distance jest obliczone, pokazujemy stawki */}
+        {distance && (
+          <div className="col-lg-12 text-center mt-4">
+            <p className="text-20">Distance: {distance} km</p>
+            {fares && (
+              <div className="fare-options flex flex-row flex-nowrap items-start justify-center gap-6 mt-6 mb-8">
+                {/* BUSINESS */}
+                <div className="fare-option flex flex-col items-center min-w-[120px]">
+                  <img
+                    src={vehicleImages.Business}
+                    alt="Business"
+                    className="fare-image mb-2"
+                  />
+                  <p>Business: €{Math.ceil(fares.Business)}</p>
+                  <button
+                    style={{
+                      background: "linear-gradient(to right, #232526, #414345)",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      padding: "6px 12px",
+                      marginTop: "8px",
+                      fontSize: "0.8rem",
+                      fontWeight: "500",
+                    }}
+                    onClick={() => setSelectedVehicle("Business")}
+                  >
+                    {selectedVehicle === "Business" ? "Selected" : "Select"}
+                  </button>
+                </div>
+
+                {/* FIRST */}
+                <div className="fare-option flex flex-col items-center min-w-[120px]">
+                  <img
+                    src={vehicleImages.First}
+                    alt="First"
+                    className="fare-image mb-2"
+                  />
+                  <p>First: €{Math.ceil(fares.First)}</p>
+                  <button
+                    style={{
+                      background: "linear-gradient(to right, #232526, #414345)",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      padding: "6px 12px",
+                      marginTop: "8px",
+                      fontSize: "0.8rem",
+                      fontWeight: "500",
+                    }}
+                    onClick={() => setSelectedVehicle("First")}
+                  >
+                    {selectedVehicle === "First" ? "Selected" : "Select"}
+                  </button>
+                </div>
+
+                {/* MPV */}
+                <div className="fare-option flex flex-col items-center min-w-[120px]">
+                  <img
+                    src={vehicleImages.MPV}
+                    alt="MPV"
+                    className="fare-image mb-2"
+                  />
+                  <p>MPV: €{Math.ceil(fares.MPV)}</p>
+                  <button
+                    style={{
+                      background: "linear-gradient(to right, #232526, #414345)",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      padding: "6px 12px",
+                      marginTop: "8px",
+                      fontSize: "0.8rem",
+                      fontWeight: "500",
+                    }}
+                    onClick={() => setSelectedVehicle("MPV")}
+                  >
+                    {selectedVehicle === "MPV" ? "Selected" : "Select"}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Return Trip */}
+        {selectedVehicle && (
+          <div className="col-lg-12 text-center mt-4">
+            <div className="mt-4">
+              <button
+                type="button"
+                onClick={() => setReturnTrip(!returnTrip)}
+                style={{
+                  width: "100%",
+                  padding: "14px 20px",
+                  borderRadius: "8px",
+                  fontWeight: "600",
+                  color: "#fff",
+                  background: returnTrip
+                    ? "linear-gradient(to right, #4a4a4a, #6f6f6f)"
+                    : "linear-gradient(to right, #232526, #414345)",
+                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+                  border: "none",
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
+                  textAlign: "center",
+                }}
+              >
+                {returnTrip ? "Return Trip - ON" : "Return Trip - OFF"}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Extra Options (Free) */}
+        <h3 className="heading-24-medium color-text mb-30 mt-40 wow fadeInUp">
+          Extra Options (Free)
+        </h3>
+        <div
+          className="extras-inline wow fadeInUp w-full"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "12px",
+            padding: "12px",
+            backgroundColor: "#f9fafb",
+            borderRadius: "8px",
+          }}
+        >
+          {extras && extras.length > 0 ? (
+            extras.map((item) => (
+              <label
+                key={item.id}
+                style={{
+                  flex: "1 1 calc(50% - 12px)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "8px",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  backgroundColor: "#ffffff",
+                  transition: "background-color 0.2s ease",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#e2e8f0")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#ffffff")
+                }
+              >
+                <input
+                  type="checkbox"
+                  style={{
+                    width: "16px",
+                    height: "16px",
+                    cursor: "pointer",
+                  }}
+                  checked={!!item.selected}
+                  onChange={() =>
+                    setExtras((prev) =>
+                      prev.map((ex) =>
+                        ex.id === item.id ? { ...ex, selected: !ex.selected } : ex
+                      )
+                    )
+                  }
+                />
+                <span style={{ color: "#1f2937" }}>{item.name}</span>
+              </label>
+            ))
+          ) : (
+            <span style={{ fontSize: "14px", color: "#6b7280" }}>
+              No extra options available.
+            </span>
+          )}
+        </div>
+
+        {/* Formularz pasażera */}
+        <h3 className="heading-24-medium color-text mb-30 mt-40 wow fadeInUp">
+          Passenger Details
+        </h3>
+        <div className="form-contact form-comment wow fadeInUp">
+          <form onSubmit={(e) => e.preventDefault()}>
+            <div className="row">
+              {/* First Name */}
+              <div className="col-lg-6">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="fullname">
+                    Name
+                  </label>
+                  <input
+                    className="form-control"
+                    id="fullname"
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                </div>
+              </div>
+              {/* Last Name */}
+              <div className="col-lg-6">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="lastname">
+                    Last Name
+                  </label>
+                  <input
+                    className="form-control"
+                    id="lastname"
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </div>
+              </div>
+              {/* Email */}
+              <div className="col-lg-6">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="email">
+                    Email Address
+                  </label>
+                  <input
+                    className="form-control"
+                    id="email"
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+              </div>
+              {/* Phone */}
+              <div className="col-lg-6">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="phone">
+                    Phone Number
+                  </label>
+                  <input
+                    className="form-control"
+                    id="phone"
+                    type="text"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
+              </div>
+              {/* Flight Number */}
+              <div className="col-lg-6">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="flightNumber">
+                    Flight Number
+                  </label>
+                  <input
+                    className="form-control"
+                    id="flightNumber"
+                    type="text"
+                    value={flightNumber}
+                    onChange={(e) => setFlightNumber(e.target.value)}
+                  />
+                </div>
+              </div>
+              {/* Passengers */}
+              <div className="col-lg-6">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="passengers">
+                    Passengers
+                  </label>
+                  <select
+                    className="form-control"
+                    id="passengers"
+                    value={passengers}
+                    onChange={(e) => setPassengers(e.target.value)}
+                  >
+                    <option value="">Select</option>
+                    {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
+                      <option key={num} value={num}>
+                        {num}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              {/* Luggage */}
+              <div className="col-lg-6">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="luggage">
+                    Luggage
+                  </label>
+                  <select
+                    className="form-control"
+                    id="luggage"
+                    value={luggage}
+                    onChange={(e) => setLuggage(e.target.value)}
+                  >
+                    <option value="">Select</option>
+                    {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
+                      <option key={num} value={num}>
+                        {num}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              {/* Notes */}
+              <div className="col-lg-12">
+                <div className="form-group">
+                  <label className="form-label" htmlFor="notes">
+                    Notes to driver
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="notes"
+                    rows="3"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        {/* Przycisk finalny "Booking" */}
+        <div className="mt-30 mb-120 wow fadeInUp">
+          <button
+            onClick={handleBooking}
+            style={{
+              width: "100%",
+              padding: "14px 20px",
+              borderRadius: "8px",
+              color: "#fff",
+              fontWeight: "600",
+              background: "linear-gradient(to right, #232526, #414345)",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+              border: "none",
+              transition: "all 0.3s ease",
+              cursor: "pointer",
+              textAlign: "center",
+            }}
+          >
+            Booking
+          </button>
+        </div>
+
+        {showMap && (
+          <MapModal
+            pickup={pickup}
+            dropoff={dropoff}
+            onClose={() => setShowMap(false)}
+          />
+        )}
+
+        {/* Google Maps Script */}
         <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&libraries=places`}
-          strategy="beforeInteractive"
+          src={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&libraries=places&language=en&region=IE`}
+          strategy="afterInteractive"
           onLoad={() => {
             console.log("Google Maps script loaded, window.google:", window.google);
           }}
         />
       </div>
-      {/* Prawy sidebar – podsumowanie */}
+
+      {/* SideBar z podsumowaniem */}
       <SideBar
         pickup={pickup}
         dropoff={dropoff}
+        date={selectedDate}
+        time={selectedTime}
         distance={distance}
         selectedVehicle={selectedVehicle}
         fares={fares}
-        extras={quantityItems}
+        extras={extras.filter((e) => e.selected)}
         totalFare={totalFare}
-        selectedDate={selectedDate}
-        selectedTime={selectedTime}
       />
     </div>
   );

@@ -17,17 +17,12 @@ export default function TimePickerComponent({
   return (
     <DatePicker
       disableDayPicker
-      value={value || ""}
+      value={value}
       format={format}
       placeholder={placeholder}
-      style={{ color: "black" }}
       plugins={[<TimePickerPlugin hideSeconds key="time-picker" />]}
       onChange={(timeObj) => {
-        if (timeObj?.format) {
-          onChange && onChange(timeObj.format(format));
-        } else {
-          onChange && onChange("");
-        }
+        if (onChange) onChange(timeObj);
       }}
     />
   );
