@@ -1,4 +1,4 @@
-"use client";
+
 import Footer3 from "@/components/footers/Footer3";
 import Header3 from "@/components/headers/Header3";
 
