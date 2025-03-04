@@ -1,4 +1,4 @@
-
+"use client";
 
 import BookingExtra from "@/components/booking/BookingExtra";
 import BookingTab from "@/components/booking/BookingTab";
