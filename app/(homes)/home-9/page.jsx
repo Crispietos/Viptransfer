@@ -1,5 +1,5 @@
 
-"use client";
+
 import Footer9 from "@/components/footers/Footer9";
 import Header8 from "@/components/headers/Header8";
 import Partners from "@/components/common/partners/Partners";

@@ -1,4 +1,4 @@
-"use client";
+
 import Footer7 from "@/components/footers/Footer7";
 import Header7 from "@/components/headers/Header7";
 import MobailHeader1 from "@/components/headers/MobailHeader1";
