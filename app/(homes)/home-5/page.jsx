@@ -1,4 +1,4 @@
-
+"use client";
 import Footer5 from "@/components/footers/Footer5";
 import Header5 from "@/components/headers/Header5";
 // import Blogs from "@/components/homes/home-5/Blogs"; // Usunięty komponent Blogs
