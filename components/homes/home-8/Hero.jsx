@@ -1,10 +1,16 @@
-import DatePickerComponent from "@/components/common/DatePickerComponent";
+"use client";
+import { useState } from "react";
+import DatePickerComponent from "@/components/common/DatePicker";
 import PlacePicker from "@/components/common/PlacePicker";
-import TimePickerComponent from "@/components/common/TimePickerComponent";
+import TimePickerComponent from "@/components/common/TimePicker";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
+  // Dodajemy stan dla daty i czasu w zakładce Distance
+  const [distanceDate, setDistanceDate] = useState("");
+  const [distanceTime, setDistanceTime] = useState("");
+
   return (
     <section className="section banner-home8">
       <div className="box-banner-homepage-8">
@@ -93,6 +99,7 @@ export default function Hero() {
                       </ul>
                     </div>
                     <div className="tab-content">
+                      {/* Zakładka Distance */}
                       <div
                         className="tab-pane fade active show"
                         id="tab-distance"
@@ -102,37 +109,53 @@ export default function Hero() {
                         <div className="box-form-search">
                           <div className="search-item search-date">
                             <div className="search-icon">
-                              <span className="item-icon icon-date"> </span>
+                              <span className="item-icon icon-date"></span>
                             </div>
-                            <div className="search-inputs ">
-                              <label className="text-14 color-grey">Date</label>
-                              <DatePickerComponent />
+                            <div className="search-inputs">
+                              <label className="text-14 color-grey">
+                                Date
+                              </label>
+                              <DatePickerComponent
+                                value={distanceDate}
+                                onChange={(val) => setDistanceDate(val)}
+                                placeholder="Select date"
+                              />
                             </div>
                           </div>
                           <div className="search-item search-time">
                             <div className="search-icon">
-                              <span className="item-icon icon-time"> </span>
+                              <span className="item-icon icon-time"></span>
                             </div>
-                            <div className="search-inputs ">
-                              <label className="text-14 color-grey">Time</label>
-                              <TimePickerComponent />
+                            <div className="search-inputs">
+                              <label className="text-14 color-grey">
+                                Time
+                              </label>
+                              <TimePickerComponent
+                                value={distanceTime}
+                                onChange={(val) => setDistanceTime(val)}
+                                placeholder="Select time"
+                              />
                             </div>
                           </div>
                           <div className="search-item search-from">
                             <div className="search-icon">
-                              <span className="item-icon icon-from"> </span>
+                              <span className="item-icon icon-from"></span>
                             </div>
                             <div className="search-inputs">
-                              <label className="text-14 color-grey">From</label>
+                              <label className="text-14 color-grey">
+                                From
+                              </label>
                               <PlacePicker />
                             </div>
                           </div>
                           <div className="search-item search-to">
                             <div className="search-icon">
-                              <span className="item-icon icon-to"> </span>
+                              <span className="item-icon icon-to"></span>
                             </div>
                             <div className="search-inputs">
-                              <label className="text-14 color-grey">To</label>
+                              <label className="text-14 color-grey">
+                                To
+                              </label>
                               <PlacePicker />
                             </div>
                           </div>
@@ -149,6 +172,7 @@ export default function Hero() {
                           </div>
                         </div>
                       </div>
+                      {/* Pozostałe zakładki pozostawiamy bez zmian */}
                       <div
                         className="tab-pane fade"
                         id="tab-hourly"
@@ -158,37 +182,45 @@ export default function Hero() {
                         <div className="box-form-search">
                           <div className="search-item search-time">
                             <div className="search-icon">
-                              <span className="item-icon icon-time"> </span>
+                              <span className="item-icon icon-time"></span>
                             </div>
-                            <div className="search-inputs ">
-                              <label className="text-14 color-grey">Time</label>
+                            <div className="search-inputs">
+                              <label className="text-14 color-grey">
+                                Time
+                              </label>
                               <TimePickerComponent />
                             </div>
                           </div>
                           <div className="search-item search-date">
                             <div className="search-icon">
-                              <span className="item-icon icon-date"> </span>
+                              <span className="item-icon icon-date"></span>
                             </div>
-                            <div className="search-inputs ">
-                              <label className="text-14 color-grey">Date</label>
+                            <div className="search-inputs">
+                              <label className="text-14 color-grey">
+                                Date
+                              </label>
                               <DatePickerComponent />
                             </div>
                           </div>
                           <div className="search-item search-from">
                             <div className="search-icon">
-                              <span className="item-icon icon-from"> </span>
+                              <span className="item-icon icon-from"></span>
                             </div>
                             <div className="search-inputs">
-                              <label className="text-14 color-grey">From</label>
+                              <label className="text-14 color-grey">
+                                From
+                              </label>
                               <PlacePicker />
                             </div>
                           </div>
                           <div className="search-item search-to">
                             <div className="search-icon">
-                              <span className="item-icon icon-to"> </span>
+                              <span className="item-icon icon-to"></span>
                             </div>
                             <div className="search-inputs">
-                              <label className="text-14 color-grey">To</label>
+                              <label className="text-14 color-grey">
+                                To
+                              </label>
                               <PlacePicker />
                             </div>
                           </div>
@@ -214,37 +246,45 @@ export default function Hero() {
                         <div className="box-form-search">
                           <div className="search-item search-date">
                             <div className="search-icon">
-                              <span className="item-icon icon-date"> </span>
+                              <span className="item-icon icon-date"></span>
                             </div>
-                            <div className="search-inputs ">
-                              <label className="text-14 color-grey">Date</label>
+                            <div className="search-inputs">
+                              <label className="text-14 color-grey">
+                                Date
+                              </label>
                               <DatePickerComponent />
                             </div>
                           </div>
                           <div className="search-item search-time">
                             <div className="search-icon">
-                              <span className="item-icon icon-time"> </span>
+                              <span className="item-icon icon-time"></span>
                             </div>
-                            <div className="search-inputs ">
-                              <label className="text-14 color-grey">Time</label>
+                            <div className="search-inputs">
+                              <label className="text-14 color-grey">
+                                Time
+                              </label>
                               <TimePickerComponent />
                             </div>
                           </div>
                           <div className="search-item search-from">
                             <div className="search-icon">
-                              <span className="item-icon icon-from"> </span>
+                              <span className="item-icon icon-from"></span>
                             </div>
                             <div className="search-inputs">
-                              <label className="text-14 color-grey">From</label>
+                              <label className="text-14 color-grey">
+                                From
+                              </label>
                               <PlacePicker />
                             </div>
                           </div>
                           <div className="search-item search-to">
                             <div className="search-icon">
-                              <span className="item-icon icon-to"> </span>
+                              <span className="item-icon icon-to"></span>
                             </div>
                             <div className="search-inputs">
-                              <label className="text-14 color-grey">To</label>
+                              <label className="text-14 color-grey">
+                                To
+                              </label>
                               <PlacePicker />
                             </div>
                           </div>

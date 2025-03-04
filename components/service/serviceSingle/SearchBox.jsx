@@ -1,41 +1,93 @@
+// SearchBox.jsx
 "use client";
-
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import DatePickerComponent from "@/components/common/DatePickerComponent";
-import TimePickerComponent from "@/components/common/TimePickerComponent";
-import GooglePlacePicker from "@/components/common/GooglePlacePicker";
-import PlacePicker from "@/components/common/PlacePicker";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
-export default function SearchBox({ service }) {
-  const router = useRouter();
+// Dynamiczne importy
+const DatePickerComponent = dynamic(() => import("@/components/common/DatePicker"), {
+  ssr: false,
+  loading: () => <span>Loading...</span>,
+});
+const TimePickerComponent = dynamic(() => import("@/components/common/TimePicker"), {
+  ssr: false,
+});
+const DynamicPlacePicker = dynamic(() => import("@/components/common/DynamicPlacePicker"), {
+  ssr: false,
+});
 
-  // Stan do wyszukiwarki (dla zakładki Distance)
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
-  const [fromLocation, setFromLocation] = useState("");
-  const [toLocation, setToLocation] = useState("");
+export default function SearchBox() {
+  // --- STANY DLA KAŻDEJ ZAKŁADKI ---
+  // 1) Distance
+  const [distancePickup, setDistancePickup] = useState("");
+  const [distanceDropoff, setDistanceDropoff] = useState("");
+  const [distanceDate, setDistanceDate] = useState(null);
+  const [distanceTime, setDistanceTime] = useState(null);
 
-  // Przykładowa funkcja obsługi przycisku "Search" (tylko w zakładce Distance)
-  const handleSearch = () => {
-    // Jeśli DatePicker/TimePicker zwracają obiekty Date, można je sformatować
-    const formattedDate =
-      selectedDate instanceof Date
-        ? selectedDate.toLocaleDateString("en-CA")
-        : selectedDate;
+  // 2) Hourly
+  const [hourlyPickup, setHourlyPickup] = useState("");
+  const [hourlyDropoff, setHourlyDropoff] = useState("");
+  const [hourlyDate, setHourlyDate] = useState(null);
+  const [hourlyTime, setHourlyTime] = useState(null);
 
-    const formattedTime =
-      selectedTime instanceof Date
-        ? selectedTime.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
-        : selectedTime;
+  // 3) Flat Rate
+  const [ratePickup, setRatePickup] = useState("");
+  const [rateDropoff, setRateDropoff] = useState("");
+  const [rateDate, setRateDate] = useState(null);
+  const [rateTime, setRateTime] = useState(null);
 
-    router.push(
-      `/booking-extra?date=${encodeURIComponent(formattedDate)}&time=${encodeURIComponent(
-        formattedTime
-      )}&pickup=${encodeURIComponent(fromLocation)}&dropoff=${encodeURIComponent(toLocation)}`
-    );
+  // --- FUNKCJE PRZEKIEROWANIA ---
+  const handleSearchDistance = () => {
+    // Zamieniamy date/time na stringi (np. "2025-12-31" i "15:30")
+    const dateStr = formatDate(distanceDate); 
+    const timeStr = formatTime(distanceTime);
+
+    const queryString = `?pickup=${encodeURIComponent(distancePickup)}&dropoff=${encodeURIComponent(distanceDropoff)}&date=${encodeURIComponent(dateStr)}&time=${encodeURIComponent(timeStr)}`;
+    window.location.href = `/extrabooking${queryString}`;
   };
+
+  const handleSearchHourly = () => {
+    const dateStr = formatDate(hourlyDate);
+    const timeStr = formatTime(hourlyTime);
+
+    const queryString = `?pickup=${encodeURIComponent(hourlyPickup)}&dropoff=${encodeURIComponent(hourlyDropoff)}&date=${encodeURIComponent(dateStr)}&time=${encodeURIComponent(timeStr)}`;
+    window.location.href = `/extrabooking${queryString}`;
+  };
+
+  const handleSearchRate = () => {
+    const dateStr = formatDate(rateDate);
+    const timeStr = formatTime(rateTime);
+
+    const queryString = `?pickup=${encodeURIComponent(ratePickup)}&dropoff=${encodeURIComponent(rateDropoff)}&date=${encodeURIComponent(dateStr)}&time=${encodeURIComponent(timeStr)}`;
+    window.location.href = `/extrabooking${queryString}`;
+  };
+
+  // Pomocnicze funkcje do formatowania
+  function formatDate(dateObj) {
+    // Jeśli używasz react-multi-date-picker i `dateObj` to DateObject:
+    if (dateObj?.format) {
+      return dateObj.format("YYYY-MM-DD");
+    }
+    // Jeśli to zwykły obiekt Date:
+    if (dateObj instanceof Date && !isNaN(dateObj)) {
+      return dateObj.toISOString().split("T")[0]; // "2025-12-31"
+    }
+    return "";
+  }
+
+  function formatTime(timeObj) {
+    // Jeśli używasz react-multi-date-picker i `timeObj` to DateObject:
+    if (timeObj?.format) {
+      return timeObj.format("HH:mm");
+    }
+    // Jeśli to zwykły obiekt Date:
+    if (timeObj instanceof Date && !isNaN(timeObj)) {
+      const hours = String(timeObj.getHours()).padStart(2, "0");
+      const mins = String(timeObj.getMinutes()).padStart(2, "0");
+      return `${hours}:${mins}`;
+    }
+    return "";
+  }
 
   return (
     <section className="section">
@@ -51,8 +103,6 @@ export default function SearchBox({ service }) {
                     href="#tab-distance"
                     data-bs-toggle="tab"
                     role="tab"
-                    aria-controls="tab-distance"
-                    aria-selected="true"
                   >
                     Distance
                   </a>
@@ -62,8 +112,6 @@ export default function SearchBox({ service }) {
                     href="#tab-hourly"
                     data-bs-toggle="tab"
                     role="tab"
-                    aria-controls="tab-hourly"
-                    aria-selected="false"
                   >
                     Hourly
                   </a>
@@ -73,8 +121,6 @@ export default function SearchBox({ service }) {
                     href="#tab-rate"
                     data-bs-toggle="tab"
                     role="tab"
-                    aria-controls="tab-rate"
-                    aria-selected="false"
                   >
                     Flat Rate
                   </a>
@@ -83,78 +129,75 @@ export default function SearchBox({ service }) {
             </div>
 
             <div className="tab-content">
-              {/* TAB: Distance */}
+              {/* ---------------- TAB DISTANCE ---------------- */}
               <div
                 className="tab-pane fade active show"
                 id="tab-distance"
                 role="tabpanel"
-                aria-labelledby="tab-distance"
               >
                 <div className="box-form-search">
                   {/* Data */}
                   <div className="search-item search-date">
                     <div className="search-icon">
-                      <span className="item-icon icon-date"> </span>
+                      <span className="item-icon icon-date"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">Date</label>
                       <DatePickerComponent
-                        value={selectedDate}
-                        onChange={(val) => setSelectedDate(val)}
+                        value={distanceDate}
+                        onChange={(val) => setDistanceDate(val)}
+                        placeholder="Select date"
                       />
                     </div>
                   </div>
-
-                  {/* Czas */}
+                  {/* Time */}
                   <div className="search-item search-time">
                     <div className="search-icon">
-                      <span className="item-icon icon-time"> </span>
+                      <span className="item-icon icon-time"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">Time</label>
                       <TimePickerComponent
-                        value={selectedTime}
-                        onChange={(val) => setSelectedTime(val)}
+                        value={distanceTime}
+                        onChange={(val) => setDistanceTime(val)}
+                        placeholder="Select time"
                       />
                     </div>
                   </div>
-
-                  {/* From */}
+                  {/* From (pickup) */}
                   <div className="search-item search-from">
                     <div className="search-icon">
-                      <span className="item-icon icon-from"> </span>
+                      <span className="item-icon icon-from"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">From</label>
-                      <GooglePlacePicker
-                        value={fromLocation}
-                        onChange={(val) => setFromLocation(val)}
+                      <DynamicPlacePicker
+                        inputId="autocomplete-distance-from"
                         placeholder="Enter pickup location"
+                        onChange={(val) => setDistancePickup(val)}
                       />
                     </div>
                   </div>
-
-                  {/* To */}
+                  {/* To (dropoff) */}
                   <div className="search-item search-to">
                     <div className="search-icon">
-                      <span className="item-icon icon-to"> </span>
+                      <span className="item-icon icon-to"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">To</label>
-                      <GooglePlacePicker
-                        value={toLocation}
-                        onChange={(val) => setToLocation(val)}
+                      <DynamicPlacePicker
+                        inputId="autocomplete-distance-to"
                         placeholder="Enter dropoff location"
+                        onChange={(val) => setDistanceDropoff(val)}
                       />
                     </div>
                   </div>
-
-                  {/* Search button */}
+                  {/* Guzik "Search" */}
                   <div className="search-item search-button mb-0">
                     <button
                       className="btn btn-search"
                       type="button"
-                      onClick={handleSearch}
+                      onClick={handleSearchDistance}
                     >
                       <Image
                         width={20}
@@ -162,137 +205,170 @@ export default function SearchBox({ service }) {
                         src="/assets/imgs/template/icons/search.svg"
                         alt="luxride"
                       />
-                      Search
+                      Get a Quote
                     </button>
                   </div>
                 </div>
               </div>
 
-              {/* TAB: Hourly */}
+              {/* ---------------- TAB HOURLY ---------------- */}
               <div
                 className="tab-pane fade"
                 id="tab-hourly"
                 role="tabpanel"
-                aria-labelledby="tab-hourly"
               >
                 <div className="box-form-search">
-                  {/* Tutaj przykładowe użycie TimePicker, DatePicker i statycznego PlacePicker */}
                   <div className="search-item search-time">
                     <div className="search-icon">
-                      <span className="item-icon icon-time"> </span>
+                      <span className="item-icon icon-time"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">Time</label>
-                      <TimePickerComponent />
+                      <TimePickerComponent
+                        value={hourlyTime}
+                        onChange={(timeObj) => setHourlyTime(timeObj)}
+                        placeholder="Select time"
+                      />
                     </div>
                   </div>
                   <div className="search-item search-date">
                     <div className="search-icon">
-                      <span className="item-icon icon-date"> </span>
+                      <span className="item-icon icon-date"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">Date</label>
-                      <DatePickerComponent />
+                      <DatePickerComponent
+                        value={hourlyDate}
+                        onChange={(val) => setHourlyDate(val)}
+                        placeholder="Select date"
+                      />
                     </div>
                   </div>
                   <div className="search-item search-from">
                     <div className="search-icon">
-                      <span className="item-icon icon-from"> </span>
+                      <span className="item-icon icon-from"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">From</label>
-                      <PlacePicker />
+                      <DynamicPlacePicker
+                        inputId="autocomplete-hourly-from"
+                        placeholder="Enter pickup location"
+                        onChange={(val) => setHourlyPickup(val)}
+                      />
                     </div>
                   </div>
                   <div className="search-item search-to">
                     <div className="search-icon">
-                      <span className="item-icon icon-to"> </span>
+                      <span className="item-icon icon-to"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">To</label>
-                      <PlacePicker />
+                      <DynamicPlacePicker
+                        inputId="autocomplete-hourly-to"
+                        placeholder="Enter dropoff location"
+                        onChange={(val) => setHourlyDropoff(val)}
+                      />
                     </div>
                   </div>
                   <div className="search-item search-button mb-0">
-                    <button className="btn btn-search" type="submit">
+                    <button
+                      className="btn btn-search"
+                      type="button"
+                      onClick={handleSearchHourly}
+                    >
                       <Image
                         width={20}
                         height={20}
                         src="/assets/imgs/template/icons/search.svg"
                         alt="luxride"
                       />
-                      Search
+                      Get a Quote
                     </button>
                   </div>
                 </div>
               </div>
 
-              {/* TAB: Flat Rate */}
+              {/* ---------------- TAB FLAT RATE ---------------- */}
               <div
                 className="tab-pane fade"
                 id="tab-rate"
                 role="tabpanel"
-                aria-labelledby="tab-rate"
               >
                 <div className="box-form-search">
                   <div className="search-item search-date">
                     <div className="search-icon">
-                      <span className="item-icon icon-date"> </span>
+                      <span className="item-icon icon-date"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">Date</label>
-                      <DatePickerComponent />
+                      <DatePickerComponent
+                        value={rateDate}
+                        onChange={(val) => setRateDate(val)}
+                        placeholder="Select date"
+                      />
                     </div>
                   </div>
                   <div className="search-item search-time">
                     <div className="search-icon">
-                      <span className="item-icon icon-time"> </span>
+                      <span className="item-icon icon-time"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">Time</label>
-                      <TimePickerComponent />
+                      <TimePickerComponent
+                        value={rateTime}
+                        onChange={(val) => setRateTime(val)}
+                        placeholder="Select time"
+                      />
                     </div>
                   </div>
                   <div className="search-item search-from">
                     <div className="search-icon">
-                      <span className="item-icon icon-from"> </span>
+                      <span className="item-icon icon-from"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">From</label>
-                      <PlacePicker />
+                      <DynamicPlacePicker
+                        inputId="autocomplete-rate-from"
+                        placeholder="Enter pickup location"
+                        onChange={(val) => setRatePickup(val)}
+                      />
                     </div>
                   </div>
                   <div className="search-item search-to">
                     <div className="search-icon">
-                      <span className="item-icon icon-to"> </span>
+                      <span className="item-icon icon-to"></span>
                     </div>
                     <div className="search-inputs">
                       <label className="text-14 color-grey">To</label>
-                      <PlacePicker />
+                      <DynamicPlacePicker
+                        inputId="autocomplete-rate-to"
+                        placeholder="Enter dropoff location"
+                        onChange={(val) => setRateDropoff(val)}
+                      />
                     </div>
                   </div>
                   <div className="search-item search-button mb-0">
-                    <button className="btn btn-search" type="submit">
+                    <button
+                      className="btn btn-search"
+                      type="button"
+                      onClick={handleSearchRate}
+                    >
                       <Image
                         width={20}
                         height={20}
                         src="/assets/imgs/template/icons/search.svg"
                         alt="luxride"
                       />
-                      Search
+                      Get a Quote
                     </button>
                   </div>
                 </div>
               </div>
-              {/* end tab-rate */}
+              {/* KONIEC TAB-CONTENT */}
             </div>
-            {/* end tab-content */}
           </div>
-          {/* end box-search-tabs */}
         </div>
-        {/* end box-search-ride */}
       </div>
-      {/* end box-form-service-single */}
     </section>
   );
 }
