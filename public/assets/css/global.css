@@ -1,0 +1,760 @@
+/* Ogólne style top-header i kontaktu */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.contact-info {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons i {
+  color: white;
+  font-size: 18px;
+}
+
+/* Klasy ułatwiające odstępy */
+.pt-72 { padding-top: 72px; }
+.pb-72 { padding-bottom: 72px; }
+.mt-16 { margin-top: 4rem; }
+.mt-4 { margin-top: 1rem; }
+
+/* Ikony społecznościowe */
+.social-icon {
+  font-size: 18px;
+  color: #ffffff;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #ffcc00;
+}
+
+/* Przycisk .btn-primary */
+.btn-primary {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+/* Menu w stopce */
+.menu-footer li {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.menu-footer li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-footer li a:hover {
+  color: #ffcc00;
+}
+
+/* Obrazy domyślnie responsywne */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Karta .price (jeśli używasz) */
+.card .price {
+  background-color: #e6f7ff;
+  color: #008ecb;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sekcja .section-primary */
+.section-primary {
+  background-color: #008ecb;
+  color: #333;
+  padding: 40px 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section-primary h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.section-primary .card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.section-primary .card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section-primary .card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Sekcja kontaktowa */
+.contact-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  color: #444;
+}
+
+.contact-icon {
+  font-size: 24px;
+}
+
+.contact-link {
+  color: #008ecb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+/* Formularze */
+input,
+textarea,
+select {
+  padding: 22px 16px 14px;
+  font-size: 16px;
+  min-height: 60px;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #fff;
+  padding: 30 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:not([value=""]) + label {
+  top: 19px;
+  font-size: 12px;
+  color: #000;
+}
+
+select.form-control {
+  appearance: none;
+  text-align: left;
+  padding: 22px 16px 14px;
+  font-size: 16px;
+  min-height: 60px;
+  width: 100%;
+  line-height: 1.5;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+select option {
+  font-size: 16px;
+  color: #000;
+}
+
+select:focus {
+  border: 2px solid #000;
+  outline: none;
+}
+
+select:not([value=""]) {
+  color: #000;
+}
+
+.form-group select {
+  min-width: 120px;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Zgody, checkboksy, itp. */
+.consent-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.consent-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.consent-label {
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+  text-align: left;
+  max-width: 500px;
+}
+
+.privacy-link {
+  color: #000;
+  text-decoration: underline;
+  font-weight: bold;
+  display: block;
+  margin-top: 3px;
+}
+
+/* Przycisk .btn-gradient */
+.btn-gradient {
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #000, #3a3a3a);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.6s ease-out;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+}
+
+.btn-gradient:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #740e74, #d1539c);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Checkboks z "✔" po zaznaczeniu */
+.consent-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: start;
+}
+
+.consent-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consent-container input[type="checkbox"]:checked {
+  background-color: #000;
+  border: 2px solid #000;
+}
+
+.consent-container input[type="checkbox"]:checked::after {
+  content: "✔";
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fares (jeśli używasz) */
+.fare-options {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.fare-option {
+  flex: 0 0 auto;
+  min-width: 100px;
+  text-align: center;
+}
+
+.fare-image {
+  width: 200px !important;
+  height: 180px !important;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+/* Return trip label (jeśli używasz) */
+.return-trip-label-container {
+  background-color: #f0f4ff;
+  border: 1px solid #cce0ff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.return-trip-label-container input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.return-trip-label-text {
+  font-size: 1.2rem;
+  color: #c61a1a;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* Google Maps Autocomplete pac-container */
+.pac-container {
+  width: 400px !important;
+  font-size: 16px;
+}
+
+.pac-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pac-item-query {
+  font-weight: bold;
+}
+
+/* Time picker */
+.time-picker-wide {
+  width: 150px !important;
+}
+
+.time-picker-placeholder::placeholder {
+  color: #aaa !important;
+  opacity: 1;
+}
+
+input:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Hero navigation (jeśli używasz) */
+.hero-navigation {
+  position: absolute;
+  bottom: 20px;
+  top: auto;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  transform: none;
+  pointer-events: none;
+}
+
+.hero-navigation button {
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero-navigation button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.hero-swiper-prev {
+  margin-left: 20px;
+}
+
+.hero-swiper-next {
+  margin-right: 20px;
+}
+
+/* Paginations w sliderach */
+.box-pagination-fleet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.swiper-button-prev-fleet,
+.swiper-button-next-fleet {
+  position: static !important;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.swiper-button-prev-fleet svg,
+.swiper-button-next-fleet svg {
+  width: 24px;
+  height: 24px;
+  stroke: #999;
+  stroke-width: 1;
+  transition: stroke 0.3s ease;
+}
+
+.swiper-button-prev-fleet:hover svg,
+.swiper-button-next-fleet:hover svg {
+  stroke: #333;
+}
+
+/* Box z karuzelą */
+.box-slide-fleet .box-swiper {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Pola wyszukiwania custom-search-row */
+.custom-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.custom-search-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.custom-search-item label {
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Nadpisanie stylów w box-form-search */
+.box-form-search {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+}
+
+.box-form-search .search-item {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 180px !important;
+  margin-bottom: 0 !important;
+}
+
+.box-form-search .search-item .search-icon {
+  margin-bottom: 4px !important;
+}
+
+.box-form-search .search-item .search-inputs label {
+  margin-bottom: 6px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+}
+
+/* Pricing select */
+.pricing-select {
+  width: 66% !important;
+  max-width: 400px;
+}
+
+/* Minimalne style responsywne */
+@media (max-width: 768px) {
+  /* Wyłącz siatkę w main-menu w mobilnym widoku */
+  /* .main-menu {...} – usunięte */
+
+  /* Logo w .header-logo – wymuszone w css:
+     .header-logo img { width: 120px !important; ... } */
+
+  /* Desktop menu chowamy, hamburger pokazujemy
+     (jeśli w Header1.jsx używasz .desktop-menu i .hamburger) */
+  .desktop-menu {
+    display: none !important;
+  }
+  .hamburger {
+    display: block !important;
+  }
+
+  /* Przykład ukrycia bocznego sidebaru, jeśli go masz */
+  .sidebar-desktop-only,
+  .box-tab-right,
+  .bookingtab-desktop {
+    display: none;
+  }
+
+  .sidebar-mobile-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    z-index: 9999;
+  }
+
+  /* Przykład zmniejszania czcionek w bannerze */
+  .box-banner-info p.text-16 {
+    font-size: 14px;
+  }
+  .box-banner-info .heading-52-medium {
+    font-size: 24px;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  /* Modyfikacje w .fare-options, .fare-option, .fare-image itp. */
+  .fare-options {
+    flex-wrap: wrap !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-x: visible !important;
+    white-space: normal !important;
+    gap: 10px !important;
+  }
+  .fare-option {
+    min-width: 100% !important;
+    text-align: center;
+    margin-bottom: 0 !important;
+  }
+  .fare-image {
+    width: 150px !important;
+    height: auto !important;
+    margin-bottom: 6px;
+  }
+  .fare-option p {
+    margin: 4px 0 !important;
+    font-size: 14px;
+  }
+  .fare-option button {
+    margin-top: 4px !important;
+    padding: 6px 10px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Styl ciała dokumentu */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+
+/* Desktop – domyślnie widać .desktop-menu, a hamburger jest hidden */
+.desktop-menu {
+  /* nic specjalnego, default display: flex (ustawiony inline) */
+}
+.hamburger {
+  display: none;
+}
+
+/* Mobile – chowamy menu desktopowe, pokazujemy hamburger */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none !important;
+  }
+  .hamburger {
+    display: block !important;
+  }
+}
+
+/* Domyślnie sub-menu jest hidden (display: none).
+   W Nav.jsx mamy "group-hover:block", ale w stylach inline 
+   nie obsłużysz pseudoklasy :hover, więc zrobimy to w CSS. */
+
+/* Pokaż sub-menu przy hover na .menu-item, ale TYLKO na desktopie */
+@media (min-width: 769px) {
+  .menu-item .sub-menu {
+    display: none !important; /* domyślnie ukryte */
+  }
+  .menu-item:hover .sub-menu {
+    display: block !important; /* hover => block */
+  }
+}
+
+.article-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+@media (max-width: 600px) {
+  .article-content h1 { font-size: 1.4rem; }
+}
+
+.article-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.article-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.article-content p, .article-content ul, .article-content ol {
+  margin-bottom: 1.2em;
+  font-size: 1rem;
+  color: #232323;
+}
+.article-content ul {
+  padding-left: 1.5rem;
+}
+.article-content li {
+  margin-bottom: 0.5em;
+}
+.article-content strong { font-weight: 700; }
+.article-content .price-box {
+  background: #f6f6f6;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 2em 0;
+}
+
+/* Google reviews button */
+.google-reviews-button {
+  background: linear-gradient(to right, #0f172a, #3b82f6); /* ciemny do jasnego niebieskiego */
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem; /* większy padding */
+  font-size: 1rem;
+  border-radius: 0.75rem; /* większe zaokrąglenie */
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.google-reviews-button:hover {
+  background: linear-gradient(to right, #0b1553, #2563eb);
+  transform: scale(1.03);
+}
+
+/* Google reviews section */
+.google-reviews-section {
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
