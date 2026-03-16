@@ -12,20 +12,20 @@ const menuItems = [
     link: "/",
   },
   {
-    id: 2,
-    title: "Day Trip",
-    link: "/day-trip",
-    subMenu: [
-      { id: 21, title: "Cliffs of Moher", link: "/trips/cliffs-of-moher" },
-      { id: 22, title: "Glendalough & Powerscourt", link: "/trips/glendalough-and-powerscourt" },
-      { id: 23, title: "Giant’s Causeway", link: "/trips/giants-causeway" },
-      { id: 24, title: "Waterford & Kilkenny", link: "/trips/waterford-kilkenny" },
-      { id: 25, title: "Blarney Castle", link: "/trips/Blarney-Castle" },
-      { id: 26, title: "Castle South and Southwest", link: "/trips/CastleSouthandSouthwest" },
-     
-      { id: 28, title: "Book a Day Trip", link: "/bookingdaytrip" },
-    ],
-  },
+  id: 2,
+  title: "Day Trip",
+  link: "/day-trip",
+  subMenu: [
+    { id: 21, title: "Cliffs of Moher", link: "/trips/cliffs-of-moher" },
+    { id: 22, title: "Glendalough & Powerscourt", link: "/trips/glendalough-and-powerscourt" },
+    { id: 23, title: "Giant’s Causeway", link: "/trips/giants-causeway" },
+    { id: 24, title: "Waterford & Kilkenny", link: "/trips/waterford-kilkenny" },
+    { id: 25, title: "Blarney Castle", link: "/trips/Blarney-Castle" },
+    { id: 26, title: "Castle South and Southwest", link: "/trips/CastleSouthandSouthwest" },
+    { id: 27, title: "Ancient and Medieval Wonders", link: "/trips/AncientandMedievalWonders" }, // <-- DODANE
+    { id: 28, title: "Book a Day Trip", link: "/bookingdaytrip" },
+  ],
+},
   {
     id: 3,
     title: "Services",

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function NorthWestTrip() {
+export default function AncientMedievalTrip() {
   return (
     <>
       <main>
@@ -10,10 +10,10 @@ export default function NorthWestTrip() {
         <section className="section pt-120 pb-60 bg-light text-center">
           <div className="container-sub">
             <h1 className="heading-44-medium mb-6 text-gray-800">
-              Ancient and Medieval Wonders: A Day Trip Through Ireland’s North West
+              Ancient and Medieval Wonders: A Private Journey Through Ireland’s Heritage
             </h1>
             <p className="text-18 color-text max-w-4xl mx-auto">
-              Discover the charm and history of Ireland’s most iconic sites with our Castle North West Tours.
+              Discover the history and soul of Ireland with our exclusive tour of iconic ancient and medieval sites.
             </p>
             <p className="text-16 mt-4 font-medium text-gray-600">
               Duration: Approximately 10-12 hours
@@ -21,15 +21,16 @@ export default function NorthWestTrip() {
           </div>
         </section>
 
-        {/* Image Section */}
+        {/* Image Section - Updated to the new Newgrange photo */}
         <section className="section pt-0 pb-60">
           <div className="container-sub">
             <Image
-              src="/assets/imgs/Ancient & Medieval Wonders.webp"
+              src="/assets/imgs/daytrips/Newgrange.webp"
               width={1200}
               height={700}
-              alt="Ancient and Medieval Wonders"
+              alt="Newgrange Ancient Passage Tomb"
               className="rounded-lg shadow-lg mx-auto"
+              style={{ objectFit: 'cover' }}
             />
           </div>
         </section>
@@ -43,19 +44,16 @@ export default function NorthWestTrip() {
                 <strong>Start from Dublin:</strong> Your journey begins at a time and location of your choice in Dublin. Enjoy a private luxury car pickup from your accommodation.
               </li>
               <li>
-                <strong>Malahide Castle:</strong> A historic fortress surrounded by 260 acres of lush parkland. Explore the beautifully manicured gardens, unique butterfly house, and the rich history of the Talbot family.
+                <strong>Newgrange:</strong> Visit this world-famous ancient passage tomb built around 3200 BCE. Famous for its alignment with the winter solstice, the site offers a deep dive into Ireland's prehistoric past through the Brú na Bóinne Visitor Centre.
               </li>
               <li>
-                <strong>Newgrange:</strong> Visit this ancient passage tomb built around 3200 BCE. Famous for its alignment with the winter solstice, the site includes a guided tour through the Brú na Bóinne Visitor Centre.
+                <strong>Trim Castle:</strong> The largest Anglo-Norman castle in Ireland, known for its massive keep and medieval history. It gained modern fame as a filming location for the movie "Braveheart."
               </li>
               <li>
-                <strong>Trim Castle:</strong> The largest Anglo-Norman castle in Ireland, known for its medieval history and as a filming location for "Braveheart." Explore the well-preserved keep and learn about the area's history through detailed exhibits.
+                <strong>Clonmacnoise:</strong> One of Ireland’s most important early Christian monastic settlements, founded in the 6th century by St. Ciarán. Located on the banks of the River Shannon, the site features striking round towers, cathedral ruins, ancient churches and beautifully carved high crosses that tell the story of Ireland’s early religious heritage.
               </li>
               <li>
-                <strong>Lunch at a Traditional Pub:</strong> Enjoy a traditional Irish lunch at a local pub with delicious local dishes and a warm atmosphere (not included in the price).
-              </li>
-              <li>
-                <strong>Return to Dublin:</strong> Relax on your journey back to Dublin, with flexible return times to ensure a leisurely experience.
+                <strong>Return to Dublin:</strong> Relax in premium comfort on your journey back to Dublin, with flexible drop-off at your hotel or preferred location.
               </li>
             </ul>
           </div>
@@ -99,7 +97,7 @@ export default function NorthWestTrip() {
     </p>
     <ul className="text-18 color-text list-disc pl-8">
       <li style={{ color: '#fff' }}>• Tour guide</li>
-      <li style={{ color: '#fff' }}>• Malahide and Trim Castle entry tickets</li>
+      <li style={{ color: '#fff' }}>• Trim Castle and Clonmacnoise entry tickets</li>
       <li style={{ color: '#fff' }}>• Meals (lunch/dinner)</li>
       <li style={{ color: '#fff' }}>• Tip for driver</li>
     </ul>

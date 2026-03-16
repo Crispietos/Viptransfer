@@ -46,6 +46,13 @@ export default function DayTripsPage() {
       image: "/assets/imgs/Castle South and Southwest.webp",
       href: "/trips/CastleSouthandSouthwest",
     },
+    {
+      id: 7,
+      title: "Ancient and Medieval Wonders",
+      description: "Experience the history of Ireland: Newgrange, Hill of Tara, and Clonmacnoise.",
+      image: "/assets/imgs/daytrips/Newgrange.webp", 
+      href: "/trips/AncientandMedievalWonders",
+    },
    
   ];
 
