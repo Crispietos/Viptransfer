@@ -1,5 +1,12 @@
 // --- IMPORTY ---
 
+// --- PACZKA 10 (Kwiecień 2026) ---
+import { cliffsOfMoherLuxuryTour } from './cliffs-of-moher-luxury-tour';
+import { michelinStarTransfers } from './michelin-star-transfers';
+import { luxuryGolfTransfers } from './luxury-golf-transfers';
+import { wicklowGlendaloughTour } from './wicklow-glendalough-tour';
+
+
 // --- PACZKA 9 (Marzec 2026) ---
 import { sheenFallsLodgeTransfer } from './sheen-falls-lodge-transfer'; // <--- DODAJ
 import { galgormResortTransfer } from './galgorm-resort-transfer';
@@ -69,6 +76,13 @@ import { doolinTransfer } from './doolin-transfer';
 // Kolejność tutaj = Kolejność na stronie (od góry do dołu)
 
 export const articles = [
+
+  // --- KWIECIEŃ 2026 ---
+  cliffsOfMoherLuxuryTour,
+  michelinStarTransfers,
+  luxuryGolfTransfers,
+  wicklowGlendaloughTour,
+  
 
   sheenFallsLodgeTransfer, // 26 marca
   galgormResortTransfer,   // 19 marca

@@ -74,27 +74,41 @@ export default function GiantsCauseway() {
 <section className="section-primary pt-60 pb-60">
   <div className="container-sub">
     <h2 className="heading-32-medium mb-10 text-center">Price</h2>
-    <div className="grid grid-cols-1 gap-10">
-      {/* Card for Car */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+      {/* Card 1: Premium Car */}
       <div className="card">
         <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Car <span className="text-gray-600">(up to 3 people)</span>
+          Premium Car <span className="text-gray-600">(up to 3 people)</span>
         </h3>
-        <p className="price">€645</p>
+        <p className="price">€695</p>
         <p className="text-16 leading-relaxed">
-          Includes Giants Causeway entrance tickets, private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+          Includes private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
         </p>
       </div>
-      {/* Card for Minivan */}
-      <div className="card mt-20">
+
+      {/* Card 2: Premium MPV */}
+      <div className="card">
         <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Minivan <span className="text-gray-600">(up to 7 people)</span>
+          Premium MPV <span className="text-gray-600">(up to 7 people)</span>
         </h3>
         <p className="price">€795</p>
         <p className="text-16 leading-relaxed">
-          Includes Giants Causeway entrance tickets, private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+          Includes private luxury transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
         </p>
       </div>
+
+      {/* Card 3: Mercedes V Class */}
+      <div className="card">
+        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+          Mercedes V Class <span className="text-gray-600">(up to 6 people)</span>
+        </h3>
+        <p className="price">€895</p>
+        <p className="text-16 leading-relaxed">
+          Includes ultra-luxury VIP transfer, extra legroom, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>

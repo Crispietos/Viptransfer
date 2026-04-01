@@ -4,26 +4,19 @@ export const menuItems = [
     title: "Home",
     link: "/",
   },
-
-  
- 
- 
   {
     id: 4,
     title: "Day Trip",
     link: "/day-trip",
     subMenu: [
-      { id: 41, title: "Cliffs of Moher", link: "/trips/cliffs-of-moher" },
+      { id: 41, title: "Cliffs of Moher & Galway", link: "/trips/cliffs-of-moher" },
       { id: 42, title: "Glendalough & Powerscourt", link: "/trips/glendalough-and-powerscourt" },
-      { id: 43, title: "Giant’s Causeway", link: "/trips/giants-causeway" },
       { id: 44, title: "Waterford & Kilkenny", link: "/trips/waterford-kilkenny" },
-      { id: 45, title: "Blarney Castle", link: "/trips/Blarney-Castle" },
-      { id: 46, title: "Castle South and Southwest", link: "/trips/CastleSouthandSouthwest" },
+      { id: 45, title: "Blarney Castle & Cobh", link: "/trips/Blarney-Castle" },
       { id: 47, title: "Ancient & Medieval Wonders", link: "/trips/AncientandMedievalWonders" },
-      { id: 48, title: "📅 Book a Day Trip", link: "/bookingdaytrip" }, // Nowy link do bookingu
+      { id: 48, title: "📅 Book a Day Trip", link: "/bookingdaytrip" }, 
     ],
   },
- 
   {
     id: 6,
     title: "Services",
@@ -34,7 +27,6 @@ export const menuItems = [
     title: "Booking",
     link: "/booking-extra",
   },
-
   {
     id: 8,
     title: "Pay",

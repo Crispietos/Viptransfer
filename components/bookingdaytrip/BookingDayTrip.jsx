@@ -18,59 +18,66 @@ export default function BookingDayTripForm() {
   const [orderID, setOrderID] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  // === ZAKTUALIZOWANA LISTA WYCIECZEK I CEN OD AGNIESZKI ===
   const tripsData = {
-    CliffsOfMoher: {
-      name: "Cliffs of Moher",
+    SelectOption: { // Pusta opcja na start
+      name: "Select a trip",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€655",
+        "Please select a trip first": "€0",
+      },
+    },
+    CustomDayTrip: {
+      name: "Custom Day Trip",
+      transportOptions: {
+        "Premium Car (up to 3 people)": "Pricing on request",
+        "Premium MPV (up to 7 people)": "Pricing on request",
+        "Mercedes V Class (up to 6 people)": "Pricing on request",
+      },
+    },
+    CliffsOfMoher: {
+      name: "Cliffs of Moher & Galway",
+      transportOptions: {
+        "Premium Car (up to 3 people)": "€695",
         "Premium MPV (up to 7 people)": "€795",
+        "Mercedes V Class (up to 6 people)": "€895",
       },
     },
     GlendaloughTour: {
       name: "Glendalough & Powerscourt",
       transportOptions: {
-        "Group of up to 3 people": "€545",
-        "Group of up to 7 people": "€645",
-      },
-    },
-    GiantsCauseway: {
-      name: "Giant’s Causeway",
-      transportOptions: {
-        "Car (up to 3 people)": "€645",
-        "Minivan (up to 7 people)": "€795",
+        "Premium Car (up to 3 people)": "€695",
+        "Premium MPV (up to 7 people)": "€795",
+        "Mercedes V Class (up to 6 people)": "€895",
       },
     },
     WaterfordKilkenny: {
       name: "Waterford & Kilkenny",
       transportOptions: {
-        "Car (up to 3 people)": "€645",
-        "Minivan (up to 7 people)": "€795",
+        "Premium Car (up to 3 people)": "€695",
+        "Premium MPV (up to 7 people)": "€795",
+        "Mercedes V Class (up to 6 people)": "€895",
       },
     },
     BlarneyCobh: {
       name: "Blarney Castle & Cobh",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€645",
+        "Premium Car (up to 3 people)": "€695",
         "Premium MPV (up to 7 people)": "€795",
-      },
-    },
-    SouthernCastles: {
-      name: "Southern Castles Tour",
-      transportOptions: {
-        "Premium Car (up to 3 people)": "€645",
-        "Premium MPV (up to 7 people)": "€795",
+        "Mercedes V Class (up to 6 people)": "€895",
       },
     },
     AncientWonders: {
-      name: "Ancient Wonders Tour",
+      name: "Ancient Wonder",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€645",
-        "Premium MPV (up to 7 people)": "€845",
+        "Premium Car (up to 3 people)": "€695",
+        "Premium MPV (up to 7 people)": "€795",
+        "Mercedes V Class (up to 6 people)": "€895",
       },
     },
   };
 
-  const defaultTripKey = tripFromUrl && tripsData[tripFromUrl] ? tripFromUrl : Object.keys(tripsData)[0];
+  // Ustawiamy domyślą wycieczkę
+  const defaultTripKey = tripFromUrl && tripsData[tripFromUrl] ? tripFromUrl : "SelectOption";
   const [selectedTrip, setSelectedTrip] = useState(defaultTripKey);
   const [selectedTransport, setSelectedTransport] = useState(Object.keys(tripsData[defaultTripKey].transportOptions)[0]);
   const [price, setPrice] = useState(tripsData[defaultTripKey].transportOptions[selectedTransport]);
@@ -83,7 +90,7 @@ export default function BookingDayTripForm() {
   const [pickupLocation, setPickupLocation] = useState("");
   const [departureDatetime, setDepartureDatetime] = useState("");
   const [passengers, setPassengers] = useState("1");
-  const [notes, setNotes] = useState(""); // <--- NOWE POLE NOTATKI
+  const [notes, setNotes] = useState(""); 
 
   const handleTripChange = (e) => {
     const newTrip = e.target.value;
@@ -100,6 +107,13 @@ export default function BookingDayTripForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Blokada wysyłki, jeśli użytkownik nie wybrał wycieczki
+    if (selectedTrip === "SelectOption") {
+        alert("Please select a trip from the list before submitting.");
+        return;
+    }
+
     setStatus("loading");
 
     const fullPhone = countryCode + phone;
@@ -121,7 +135,7 @@ export default function BookingDayTripForm() {
              date: departureDatetime.replace("T", " at "),
              passengers: passengers,
              price: price,
-             notes: notes || "—" // <--- Zapisujemy notatki
+             notes: notes || "—" 
           }
         }
       ])
@@ -148,7 +162,7 @@ export default function BookingDayTripForm() {
         date: departureDatetime.replace("T", " "),
         passengers: passengers,
         price: price,
-        notes: notes || "—" // <--- Wysyłamy notatki do maila
+        notes: notes || "—" 
     };
 
     try {
@@ -186,6 +200,10 @@ export default function BookingDayTripForm() {
             <p className="text-18 text-black">
               Check availability and reserve your private tour.
             </p>
+            {/* DODANY TEKST ZGODNIE Z PROŚBĄ AGNIESZKI */}
+            <p className="text-16 color-text mt-10">
+              You can choose one of our day trips or share your own idea.
+            </p>
           </div>
           <form ref={formRef} onSubmit={handleSubmit}>
             <div className="row">
@@ -219,14 +237,19 @@ export default function BookingDayTripForm() {
                 <input className="form-control" type="text" placeholder="Hotel or Address in Dublin" required 
                        value={pickupLocation} onChange={(e) => setPickupLocation(e.target.value)} />
               </div>
+
+              {/* === TUTAJ JEST LISTA ROZWIJANA WYGENEROWANA Z tripsData === */}
               <div className="col-lg-6 col-md-6">
                 <label className="form-label">Select Trip:</label>
                 <select className="form-control" value={selectedTrip} onChange={handleTripChange}>
                   {Object.keys(tripsData).map((tripKey) => (
-                    <option key={tripKey} value={tripKey}>{tripsData[tripKey].name}</option>
+                    <option key={tripKey} value={tripKey} disabled={tripKey === "SelectOption"}>
+                      {tripsData[tripKey].name}
+                    </option>
                   ))}
                 </select>
               </div>
+
               <div className="col-lg-6 col-md-6">
                 <label className="form-label">Select Transport:</label>
                 <select className="form-control" value={selectedTransport} onChange={handleTransportChange}>
@@ -254,6 +277,15 @@ export default function BookingDayTripForm() {
                       <option value="2">2 Passengers</option>
                       <option value="3">3 Passengers</option>
                     </>
+                  ) : selectedTransport.includes("6 people") ? (
+                    <>
+                      <option value="1">1 Passenger</option>
+                      <option value="2">2 Passengers</option>
+                      <option value="3">3 Passengers</option>
+                      <option value="4">4 Passengers</option>
+                      <option value="5">5 Passengers</option>
+                      <option value="6">6 Passengers</option>
+                    </>
                   ) : (
                     <>
                       <option value="1">1 Passenger</option>
@@ -273,7 +305,6 @@ export default function BookingDayTripForm() {
                        style={{fontWeight:'bold', color:'#006400'}}/>
               </div>
 
-              {/* === NOWE POLE: NOTES === */}
               <div className="col-lg-12">
                 <label className="form-label">Notes / Special Requests (Optional):</label>
                 <textarea 
@@ -313,7 +344,7 @@ export default function BookingDayTripForm() {
                 <button 
                     className="btn btn-primary" 
                     type="submit" 
-                    disabled={status === "loading"}
+                    disabled={status === "loading" || selectedTrip === "SelectOption"}
                     style={{minWidth: '220px'}}
                 >
                   {status === "loading" ? "Sending Request..." : "Request Availability"}
