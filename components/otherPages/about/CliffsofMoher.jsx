@@ -129,7 +129,7 @@ export default function CliffsOfMoher() {
                 </h3>
                 <p className="price text-3xl font-bold mb-4">€695</p>
                 <p className="text-16 leading-relaxed text-gray-600">
-                  Mercedes S-Class. Includes private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+                  Mercedes S-Class. Includes private comfortable car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
                 </p>
               </div>
               {/* Card 2 */}

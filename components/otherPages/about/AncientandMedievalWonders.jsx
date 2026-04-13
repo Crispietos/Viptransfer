@@ -72,7 +72,7 @@ export default function AncientMedievalTrip() {
         </h3>
         <p className="price">€695</p>
         <p className="text-16 leading-relaxed">
-          Includes private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+          Includes private comfortable car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
         </p>
       </div>
 
