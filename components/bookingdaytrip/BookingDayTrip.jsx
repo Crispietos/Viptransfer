@@ -18,7 +18,7 @@ export default function BookingDayTripForm() {
   const [orderID, setOrderID] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  // === ZAKTUALIZOWANA LISTA WYCIECZEK I CEN OD AGNIESZKI ===
+  // === ZAKTUALIZOWANA LISTA WYCIECZEK Z NOWYMI NAZWAMI KLAS I "FROM" ===
   const tripsData = {
     SelectOption: { // Pusta opcja na start
       name: "Select a trip",
@@ -29,49 +29,49 @@ export default function BookingDayTripForm() {
     CustomDayTrip: {
       name: "Custom Day Trip",
       transportOptions: {
-        "Premium Car (up to 3 people)": "Pricing on request",
-        "Premium MPV (up to 7 people)": "Pricing on request",
-        "Mercedes V Class (up to 6 people)": "Pricing on request",
+        "Luxury (up to 3 people)": "Pricing on request",
+        "Comfort (up to 7 people)": "Pricing on request",
+        "Executive (up to 6 people)": "Pricing on request",
       },
     },
     CliffsOfMoher: {
       name: "Cliffs of Moher & Galway",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€695",
-        "Premium MPV (up to 7 people)": "€795",
-        "Mercedes V Class (up to 6 people)": "€895",
+        "Luxury (up to 3 people)": "From €695",
+        "Comfort (up to 7 people)": "From €795",
+        "Executive (up to 6 people)": "From €895",
       },
     },
     GlendaloughTour: {
       name: "Glendalough & Powerscourt",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€695",
-        "Premium MPV (up to 7 people)": "€795",
-        "Mercedes V Class (up to 6 people)": "€895",
+        "Luxury (up to 3 people)": "From €695",
+        "Comfort (up to 7 people)": "From €795",
+        "Executive (up to 6 people)": "From €895",
       },
     },
     WaterfordKilkenny: {
       name: "Waterford & Kilkenny",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€695",
-        "Premium MPV (up to 7 people)": "€795",
-        "Mercedes V Class (up to 6 people)": "€895",
+        "Luxury (up to 3 people)": "From €695",
+        "Comfort (up to 7 people)": "From €795",
+        "Executive (up to 6 people)": "From €895",
       },
     },
     BlarneyCobh: {
       name: "Blarney Castle & Cobh",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€695",
-        "Premium MPV (up to 7 people)": "€795",
-        "Mercedes V Class (up to 6 people)": "€895",
+        "Luxury (up to 3 people)": "From €695",
+        "Comfort (up to 7 people)": "From €795",
+        "Executive (up to 6 people)": "From €895",
       },
     },
     AncientWonders: {
       name: "Ancient Wonder",
       transportOptions: {
-        "Premium Car (up to 3 people)": "€695",
-        "Premium MPV (up to 7 people)": "€795",
-        "Mercedes V Class (up to 6 people)": "€895",
+        "Luxury (up to 3 people)": "From €695",
+        "Comfort (up to 7 people)": "From €795",
+        "Executive (up to 6 people)": "From €895",
       },
     },
   };
@@ -200,7 +200,6 @@ export default function BookingDayTripForm() {
             <p className="text-18 text-black">
               Check availability and reserve your private tour.
             </p>
-            {/* DODANY TEKST ZGODNIE Z PROŚBĄ AGNIESZKI */}
             <p className="text-16 color-text mt-10">
               You can choose one of our day trips or share your own idea.
             </p>
@@ -271,6 +270,7 @@ export default function BookingDayTripForm() {
               <div className="col-lg-6 col-md-6">
                 <label className="form-label">Number of Passengers:</label>
                 <select className="form-control" required value={passengers} onChange={(e) => setPassengers(e.target.value)}>
+                  {/* Zaktualizowana logika wyboru pasażerów na podstawie nowych nazw klas */}
                   {selectedTransport.includes("3 people") ? (
                     <>
                       <option value="1">1 Passenger</option>

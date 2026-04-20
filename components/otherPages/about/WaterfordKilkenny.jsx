@@ -7,145 +7,231 @@ export default function WaterfordKilkennyTrip() {
   return (
     <>
       <main>
+        {/* --- DEDYKOWANE STYLE PREMIUM (Bezpieczne dla Bootstrapa) --- */}
+        <style>{`
+          .premium-hero-img {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+          }
+          .premium-list {
+            padding-left: 20px;
+            margin-bottom: 20px;
+          }
+          .premium-list li {
+            list-style-type: disc;
+            margin-bottom: 15px;
+            line-height: 1.6;
+          }
+          /* Karty Cenowe */
+          .price-card-premium {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            height: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+          }
+          .price-card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+          }
+          .price-card-premium .price-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0EA5E9;
+            margin: 20px 0;
+          }
+          /* Karty Glassmorphism */
+          .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            color: #fff;
+          }
+          .glass-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          .glass-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 17px;
+            line-height: 1.5;
+          }
+        `}</style>
+
         {/* Header Section */}
-        <section className="section pt-120 pb-60 bg-light text-center">
+        <section className="section pt-120 pb-40 text-center">
           <div className="container-sub">
             <h1 className="heading-44-medium mb-6 text-gray-800">
               One Day Trip from Dublin to Waterford and Kilkenny Castle
             </h1>
-            <p className="text-18 color-text max-w-4xl mx-auto">
+            <p className="text-18 color-text max-w-4xl mx-auto mb-6 leading-relaxed">
               Discover the beauty of Ireland with our one-day trip from Dublin. Enjoy a private and flexible tour, perfect for groups of 1 to 7 people. Explore stunning landscapes, historical sites, and charming cities at your own pace.
             </p>
-            <p className="text-16 mt-4 font-medium text-gray-600">
-              Estimated trip duration: approximately 10-13 hours
+            <p className="text-16 mt-4 font-medium text-gray-600 bg-gray-100 inline-block px-4 py-2 rounded-full">
+              ⏳ Estimated trip duration: approximately 10-13 hours
             </p>
           </div>
         </section>
 
-        {/* Image Section */}
+        {/* Image Section - Opanowany rozmiar i cień */}
         <section className="section pt-0 pb-60">
           <div className="container-sub">
-            <Image
-              src="/assets/imgs/Waterford.webp"
-              width={1200}
-              height={700}
-              alt="Waterford and Kilkenny"
-              className="rounded-lg shadow-lg mx-auto"
-            />
+            <div className="premium-hero-img">
+              <Image
+                src="/assets/imgs/Waterford.webp"
+                alt="Waterford and Kilkenny"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           </div>
         </section>
 
-        {/* Highlights Section */}
-        <section className="section pt-60 pb-60 bg-light">
+        {/* What We Offer & Itinerary Section */}
+        <section className="section pt-0 pb-60">
           <div className="container-sub">
-            <h2 className="heading-32-medium mb-6 text-gray-800">What We Offer</h2>
-            <ul className="text-18 color-text space-y-4 pl-8">
-              <li>• Private Transport: A comfortable car with a driver, ensuring a smooth round trip with bottled water and free Wi-Fi.</li>
-              <li>• Flexible Schedule: Adjust the day's plan according to your preferences and explore at your own pace.</li>
-              <li>• Scenic Views: Stops for photos at the most picturesque spots of your choice.</li>
-              <li>• Enjoy Free Time for Sightseeing: Free time to discover the area on your own.</li>
-              <li>• Safety and Convenience: The price includes all parking and toll fees.</li>
-            </ul>
+            <div className="row">
+              <div className="col-lg-10 offset-lg-1">
+                
+                <h2 className="heading-32-medium mb-6 text-gray-800 text-center">What We Offer</h2>
+                <ul className="text-18 color-text premium-list mb-10">
+                  <li><strong>Private Transport:</strong> A comfortable car with a driver, ensuring a smooth round trip with bottled water and free Wi-Fi.</li>
+                  <li><strong>Flexible Schedule:</strong> Adjust the day's plan according to your preferences and explore at your own pace.</li>
+                  <li><strong>Scenic Views:</strong> Stops for photos at the most picturesque spots of your choice.</li>
+                  <li><strong>Free Time for Sightseeing:</strong> Free time to discover the area on your own.</li>
+                  <li><strong>Safety and Convenience:</strong> The price includes all parking and toll fees.</li>
+                </ul>
+
+                <h2 className="heading-32-medium mb-6 text-gray-800 text-center mt-10">Itinerary</h2>
+                <ul className="text-18 color-text premium-list">
+                  <li>
+                    <strong>Kilkenny:</strong>
+                    <ul className="list-disc pl-8 mt-3 mb-3">
+                      <li><strong>Kilkenny Castle:</strong> Tour the castle and its gardens.</li>
+                      <li><strong>Old Town:</strong> Stroll through the picturesque streets of Kilkenny, discovering local shops and cafes.</li>
+                      <li><strong>St Canice’s Cathedral:</strong> Experience one of Ireland’s top three cathedrals.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Waterford City:</strong>
+                    <ul className="list-disc pl-8 mt-3 mb-3">
+                      <li><strong>Waterford Crystal Visitor Centre:</strong> See how world-famous crystals are made.</li>
+                      <li><strong>Waterford Treasures - Medieval Museum:</strong> Learn about Waterford’s rich history.</li>
+                      <li><strong>Reginald’s Tower:</strong> Explore Ireland’s oldest civic building with fascinating exhibits.</li>
+                      <li><strong>Free Time for Exploration:</strong> Discover additional attractions independently.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Return to Dublin:</strong> Safe and comfortable, with a flexible return time based on your preferences.</li>
+                </ul>
+
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Itinerary Section */}
-        <section className="section pt-60 pb-60 bg-light">
+        {/* Pricing Section - ELEGANCJA I BOOTSTRAP GRID */}
+        <section className="section-primary pt-80 pb-80">
           <div className="container-sub">
-            <h2 className="heading-32-medium mb-6 text-gray-800">Itinerary</h2>
-            <ul className="text-18 color-text space-y-6 pl-8">
-              <li>
-                <strong>Kilkenny:</strong>
-                <ul className="list-disc pl-8">
-                  <li>Kilkenny Castle: Tour the castle and its gardens.</li>
-                  <li>Old Town: Stroll through the picturesque streets of Kilkenny, discovering local shops and cafes.</li>
-                  <li>St Canice’s Cathedral: Experience one of Ireland’s top three cathedrals.</li>
-                </ul>
-              </li>
-              <li>
-                <strong>Waterford City:</strong>
-                <ul className="list-disc pl-8">
-                  <li>Waterford Crystal Visitor Centre: See how world-famous crystals are made.</li>
-                  <li>Waterford Treasures - Medieval Museum: Learn about Waterford’s rich history.</li>
-                  <li>Reginald’s Tower: Explore Ireland’s oldest civic building with fascinating exhibits.</li>
-                  <li>Free Time for Exploration: Discover additional attractions independently.</li>
-                </ul>
-              </li>
-              <li>Return to Dublin: Safe and comfortable, with a flexible return time based on your preferences.</li>
-            </ul>
+            <h2 className="heading-36-medium mb-10 text-center" style={{ color: '#fff' }}>Trip Pricing</h2>
+            
+            <div className="row">
+              {/* Card 1: Luxury */}
+              <div className="col-lg-4 col-md-12 mb-30">
+                <div className="price-card-premium">
+                  <h3 className="text-24 font-bold text-gray-800 mb-2">Luxury</h3>
+                  <span className="text-gray-500 font-medium">up to 3 people</span>
+                  <div className="price-value">From €695</div>
+                  <p className="text-16 leading-relaxed text-gray-600 flex-grow">
+                    <strong>Mercedes S-Class.</strong> Includes private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2: Comfort */}
+              <div className="col-lg-4 col-md-12 mb-30">
+                <div className="price-card-premium" style={{ transform: 'scale(1.03)', zIndex: 2, border: '2px solid #0EA5E9' }}>
+                  <div style={{ position: 'absolute', top: '-15px', left: '50%', transform: 'translateX(-50%)', background: '#0EA5E9', color: '#fff', padding: '5px 15px', borderRadius: '20px', fontSize: '14px', fontWeight: 'bold' }}>Most Popular</div>
+                  <h3 className="text-24 font-bold text-gray-800 mb-2 mt-3">Comfort</h3>
+                  <span className="text-gray-500 font-medium">up to 7 people</span>
+                  <div className="price-value">From €795</div>
+                  <p className="text-16 leading-relaxed text-gray-600 flex-grow">
+                    Includes private comfortable transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3: Executive */}
+              <div className="col-lg-4 col-md-12 mb-30">
+                <div className="price-card-premium">
+                  <h3 className="text-24 font-bold text-gray-800 mb-2">Executive</h3>
+                  <span className="text-gray-500 font-medium">up to 6 people</span>
+                  <div className="price-value">From €895</div>
+                  <p className="text-16 leading-relaxed text-gray-600 flex-grow">
+                    <strong>Mercedes V-Class</strong> with individual captain seats. Includes ultra-luxury VIP transfer, extra legroom, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-       {/* Pricing Section - ZAKTUALIZOWANA */}
-<section className="section-primary pt-60 pb-60">
-  <div className="container-sub">
-    <h2 className="heading-32-medium mb-10 text-center">Price</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-      
-      {/* Card 1: Luxury */}
-      <div className="card">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Luxury <span className="text-gray-600">(up to 3 people)</span>
-        </h3>
-        <p className="price">From €695</p>
-        <p className="text-16 leading-relaxed">
-          Mercedes S-Class. Includes private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
-        </p>
-      </div>
+        {/* Additional Info Section - GLASSMORPHISM */}
+        <section className="section-primary pt-0 pb-80">
+          <div className="container-sub">
+            <div className="row mt-10">
+              
+              {/* Not Included */}
+              <div className="col-lg-6 mb-30">
+                <div className="glass-card" style={{ background: 'rgba(0, 0, 0, 0.15)' }}>
+                  <h2 className="heading-28-medium mb-6">What’s Not Included</h2>
+                  <ul className="glass-list">
+                    <li><span style={{color: '#f87171'}}>✕</span> A guide</li>
+                    <li><span style={{color: '#f87171'}}>✕</span> St Canice's Cathedral, House of Waterford & Medieval Museum tickets</li>
+                    <li><span style={{color: '#f87171'}}>✕</span> Meals (lunch/dinner)</li>
+                    <li><span style={{color: '#f87171'}}>✕</span> Tip for driver</li>
+                  </ul>
+                </div>
+              </div>
 
-      {/* Card 2: Comfort */}
-      <div className="card">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Comfort <span className="text-gray-600">(up to 7 people)</span>
-        </h3>
-        <p className="price">From €795</p>
-        <p className="text-16 leading-relaxed">
-          Includes private comfortable transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
-        </p>
-      </div>
+              {/* Additional Options */}
+              <div className="col-lg-6 mb-30">
+                <div className="glass-card">
+                  <h2 className="heading-28-medium mb-6">Additional Options</h2>
+                  <p className="text-18" style={{ lineHeight: '1.7', color: '#fff' }}>
+                    Possibility to customize the route and trip plan according to individual preferences, including your favorite places not shown on the standard list, and flexible planning of stops and their duration.
+                  </p>
+                </div>
+              </div>
 
-      {/* Card 3: Executive */}
-      <div className="card">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Executive <span className="text-gray-600">(up to 6 people)</span>
-        </h3>
-        <p className="price">From €895</p>
-        <p className="text-16 leading-relaxed">
-          Mercedes V-Class with individual captain seats. Includes ultra-luxury VIP transfer, extra legroom, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
-        </p>
-      </div>
+            </div>
 
-    </div>
-  </div>
-</section>
-
-{/* Additional Information Section */}
-<section className="section-primary mt-4 pt-60 pb-60">
-  <div className="container-sub" style={{ color: '#fff' }}>
-    <h2 className="heading-32-medium mb-6" style={{ color: '#fff' }}>Additional Information</h2>
-    <p className="text-18" style={{ color: '#fff' }}>
-      Please note that our offer does not include:
-    </p>
-    <ul className="text-18 list-disc pl-8">
-      <li style={{ color: '#fff' }}>• A guide</li>
-      <li style={{ color: '#fff' }}>• St Canice's Cathedral tickets</li>
-      <li style={{ color: '#fff' }}>• House of Waterford tickets</li>
-      <li style={{ color: '#fff' }}>• Medieval Museum tickets</li>
-      <li style={{ color: '#fff' }}>• Meals (lunch/dinner)</li>
-      <li style={{ color: '#fff' }}>• Tip for driver</li>
-    </ul>
-    <h3 className="text-2xl font-semibold mt-10 mb-6" style={{ color: '#fff' }}>Additional Options</h3>
-    <p className="text-18" style={{ color: '#fff' }}>
-      Possibility to customize the route and trip plan according to individual preferences, including your favorite places not shown on the standard list, and flexible planning of stops and their duration.
-    </p>
-  </div>
-
-  <div className="text-center mt-10">
-    <Link href="/bookingdaytrip" passHref>
-      <span className="btn btn-light rounded-3 px-4 py-3 fw-semibold" style={{ color: '#0EA5E9' }}>Make a booking</span>
-    </Link>
-  </div>
-</section>
+            <div className="text-center mt-30">
+              <Link href="/bookingdaytrip" passHref>
+                <span className="btn btn-light rounded-3 px-5 py-4 fw-bold text-18" style={{ color: '#0EA5E9', textTransform: 'uppercase', letterSpacing: '1px', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}>
+                  Make a booking
+                </span>
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );

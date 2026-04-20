@@ -1,144 +1,231 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link"; // Import powinien być tutaj, na górze
+import Link from "next/link"; 
 
 export default function GiantsCauseway() {
   return (
     <>
       <main>
+        {/* --- DEDYKOWANE STYLE PREMIUM (Bezpieczne dla Bootstrapa) --- */}
+        <style>{`
+          .premium-hero-img {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+          }
+          .premium-list {
+            padding-left: 20px;
+            margin-bottom: 20px;
+          }
+          .premium-list li {
+            list-style-type: disc;
+            margin-bottom: 15px;
+            line-height: 1.6;
+          }
+          /* Karty Cenowe */
+          .price-card-premium {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            height: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+          }
+          .price-card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+          }
+          .price-card-premium .price-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0EA5E9;
+            margin: 20px 0;
+          }
+          /* Karty Glassmorphism */
+          .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            color: #fff;
+          }
+          .glass-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          .glass-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 17px;
+            line-height: 1.5;
+          }
+        `}</style>
+
         {/* Nagłówek */}
-        <section className="section pt-120 pb-60 bg-light text-center">
+        <section className="section pt-120 pb-40 text-center">
           <div className="container-sub">
-            <h1 className="heading-44-medium mb-6 text-gray-800">
+            <h1 className="heading-44-medium mb-4 text-gray-800">
               One Day Trip from Dublin to Giant’s Causeway
             </h1>
-            <p className="text-18 color-text max-w-4xl mx-auto">
+            <p className="text-18 color-text max-w-4xl mx-auto mb-6 leading-relaxed">
               Discover the beauty and history of Ireland with our private day trip from Dublin to Giant’s Causeway. Enjoy the flexibility and comfort of private transportation, perfect for groups from one to seven people. This tour is unguided, allowing you to explore this picturesque region at your own pace.
             </p>
-            <p className="text-16 mt-4 font-medium text-gray-600">
-              Estimated trip duration: approximately 10-13 hours.
+            <p className="text-16 mt-4 font-medium text-gray-600 bg-gray-100 inline-block px-4 py-2 rounded-full">
+              ⏳ Estimated trip duration: approximately 10-13 hours.
             </p>
           </div>
         </section>
 
-        {/* Obrazek */}
+        {/* Obrazek - Opanowany rozmiar i cień */}
         <section className="section pt-0 pb-60">
           <div className="container-sub">
-            <Image
-              src="/assets/imgs/daytrips/Giant’sCauseway.webp"
-              width={1200}
-              height={700}
-              alt="Giant’s Causeway"
-              className="rounded-lg shadow-lg mx-auto"
-            />
+            <div className="premium-hero-img">
+              <Image
+                src="/assets/imgs/daytrips/Giant’sCauseway.webp"
+                alt="Giant’s Causeway"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           </div>
         </section>
 
-        {/* Szczegóły wycieczki */}
-        <section className="section pt-60 pb-60 bg-light">
+        {/* Co Oferujemy i Plan Wycieczki */}
+        <section className="section pt-0 pb-60">
           <div className="container-sub">
-            <h2 className="heading-32-medium mb-6 text-gray-800">What We Offer</h2>
-            <ul className="text-18 color-text space-y-4 pl-8">
-              <li>• Private Transport: Comfortable vehicle with a driver, ensuring a smooth round trip with bottled water and free Wi-Fi.</li>
-              <li>• Flexible Schedule: Tailor the day’s itinerary to your preferences and explore at your own pace.</li>
-              <li>• Scenic Views: Photo stops at the most picturesque locations of your choice.</li>
-              <li>• Free Time for Exploration: Ample time to independently discover the area.</li>
-              <li>• Additional Stops: Option to visit Newgrange, Rope Bridge, Titanic Museum.</li>
-              <li>• Safety and Comfort: Price includes all parking and toll fees.</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Itinerary */}
-        <section className="section pt-60 pb-60 bg-light">
-          <div className="container-sub">
-            <h2 className="heading-32-medium mb-6 text-gray-800">Itinerary</h2>
-            <ul className="text-18 color-text space-y-4 pl-8">
-              <li>• Departure from Dublin: Flexible departure time to suit your schedule.</li>
-              <li>• Optional Stops: Choose additional stops such as:
-                <ul className="list-disc pl-8">
-                  <li><strong>Newgrange:</strong> Tour the prehistoric tomb, one of Ireland’s most significant archaeological sites.</li>
-                  <li><strong>Giant’s Causeway:</strong> Explore the unique rock formations along the coast.</li>
-                  <li><strong>Rope Bridge:</strong> Enjoy an exciting walk across the famous rope bridge.</li>
-                  <li><strong>Titanic Museum:</strong> Immerse yourself in the history of the legendary ship.</li>
+            <div className="row">
+              <div className="col-lg-10 offset-lg-1">
+                
+                <h2 className="heading-32-medium mb-6 text-gray-800 text-center">What We Offer</h2>
+                <ul className="text-18 color-text premium-list mb-10">
+                  <li><strong>Private Transport:</strong> Comfortable vehicle with a driver, ensuring a smooth round trip with bottled water and free Wi-Fi.</li>
+                  <li><strong>Flexible Schedule:</strong> Tailor the day’s itinerary to your preferences and explore at your own pace.</li>
+                  <li><strong>Scenic Views:</strong> Photo stops at the most picturesque locations of your choice.</li>
+                  <li><strong>Free Time for Exploration:</strong> Ample time to independently discover the area.</li>
+                  <li><strong>Additional Stops:</strong> Option to visit Newgrange, Rope Bridge, Titanic Museum.</li>
+                  <li><strong>Safety and Comfort:</strong> Price includes all parking and toll fees.</li>
                 </ul>
-              </li>
-              <li>• Lunch at a Traditional Pub: Optional stop for a delicious meal at a local pub.</li>
-              <li>• Return to Dublin: Flexible return time based on your preferences.</li>
-            </ul>
+
+                <h2 className="heading-32-medium mb-6 text-gray-800 text-center mt-10">Itinerary</h2>
+                <ul className="text-18 color-text premium-list">
+                  <li><strong>Departure from Dublin:</strong> Flexible departure time to suit your schedule.</li>
+                  <li><strong>Optional Stops:</strong> Choose additional stops such as:
+                    <ul className="list-disc pl-8 mt-3 mb-3">
+                      <li><strong>Newgrange:</strong> Tour the prehistoric tomb, one of Ireland’s most significant archaeological sites.</li>
+                      <li><strong>Giant’s Causeway:</strong> Explore the unique rock formations along the coast.</li>
+                      <li><strong>Rope Bridge:</strong> Enjoy an exciting walk across the famous rope bridge.</li>
+                      <li><strong>Titanic Museum:</strong> Immerse yourself in the history of the legendary ship.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Lunch at a Traditional Pub:</strong> Optional stop for a delicious meal at a local pub.</li>
+                  <li><strong>Return to Dublin:</strong> Flexible return time based on your preferences.</li>
+                </ul>
+
+              </div>
+            </div>
           </div>
         </section>
 
-       {/* Pricing Section */}
-<section className="section-primary pt-60 pb-60">
-  <div className="container-sub">
-    <h2 className="heading-32-medium mb-10 text-center">Price</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-      
-      {/* Card 1: Premium Car */}
-      <div className="card">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Premium Car <span className="text-gray-600">(up to 3 people)</span>
-        </h3>
-        <p className="price">€695</p>
-        <p className="text-16 leading-relaxed">
-          Includes private comfortable car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
-        </p>
-      </div>
+        {/* Pricing Section - ELEGANCJA I BOOTSTRAP GRID */}
+        <section className="section-primary pt-80 pb-80">
+          <div className="container-sub">
+            <h2 className="heading-36-medium mb-10 text-center" style={{ color: '#fff' }}>Trip Pricing</h2>
+            
+            <div className="row">
+              {/* Card 1: Luxury */}
+              <div className="col-lg-4 col-md-12 mb-30">
+                <div className="price-card-premium">
+                  <h3 className="text-24 font-bold text-gray-800 mb-2">Luxury</h3>
+                  <span className="text-gray-500 font-medium">up to 3 people</span>
+                  <div className="price-value">From €695</div>
+                  <p className="text-16 leading-relaxed text-gray-600 flex-grow">
+                    <strong>Mercedes S-Class.</strong> Includes private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+                  </p>
+                </div>
+              </div>
 
-      {/* Card 2: Premium MPV */}
-      <div className="card">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Premium MPV <span className="text-gray-600">(up to 7 people)</span>
-        </h3>
-        <p className="price">€795</p>
-        <p className="text-16 leading-relaxed">
-          Includes private luxury transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
-        </p>
-      </div>
+              {/* Card 2: Comfort */}
+              <div className="col-lg-4 col-md-12 mb-30">
+                <div className="price-card-premium" style={{ transform: 'scale(1.03)', zIndex: 2, border: '2px solid #0EA5E9' }}>
+                  <div style={{ position: 'absolute', top: '-15px', left: '50%', transform: 'translateX(-50%)', background: '#0EA5E9', color: '#fff', padding: '5px 15px', borderRadius: '20px', fontSize: '14px', fontWeight: 'bold' }}>Most Popular</div>
+                  <h3 className="text-24 font-bold text-gray-800 mb-2 mt-3">Comfort</h3>
+                  <span className="text-gray-500 font-medium">up to 7 people</span>
+                  <div className="price-value">From €795</div>
+                  <p className="text-16 leading-relaxed text-gray-600 flex-grow">
+                    Includes private comfortable transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+                  </p>
+                </div>
+              </div>
 
-      {/* Card 3: Mercedes V Class */}
-      <div className="card">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Mercedes V Class <span className="text-gray-600">(up to 6 people)</span>
-        </h3>
-        <p className="price">€895</p>
-        <p className="text-16 leading-relaxed">
-          Includes ultra-luxury VIP transfer, extra legroom, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
-        </p>
-      </div>
+              {/* Card 3: Executive */}
+              <div className="col-lg-4 col-md-12 mb-30">
+                <div className="price-card-premium">
+                  <h3 className="text-24 font-bold text-gray-800 mb-2">Executive</h3>
+                  <span className="text-gray-500 font-medium">up to 6 people</span>
+                  <div className="price-value">From €895</div>
+                  <p className="text-16 leading-relaxed text-gray-600 flex-grow">
+                    <strong>Mercedes V-Class</strong> with individual captain seats. Includes ultra-luxury VIP transfer, extra legroom, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-    </div>
-  </div>
-</section>
+        {/* Additional Info Section - GLASSMORPHISM */}
+        <section className="section-primary pt-0 pb-80">
+          <div className="container-sub">
+            <div className="row mt-10">
+              
+              {/* Not Included */}
+              <div className="col-lg-6 mb-30">
+                <div className="glass-card" style={{ background: 'rgba(0, 0, 0, 0.15)' }}>
+                  <h2 className="heading-28-medium mb-6">What’s Not Included</h2>
+                  <ul className="glass-list">
+                    <li><span style={{color: '#f87171'}}>✕</span> Tour guide</li>
+                    <li><span style={{color: '#f87171'}}>✕</span> Tickets to Newgrange, Rope Bridge & Titanic Museum</li>
+                    <li><span style={{color: '#f87171'}}>✕</span> Meals (lunch/dinner)</li>
+                    <li><span style={{color: '#f87171'}}>✕</span> Tip for driver</li>
+                  </ul>
+                </div>
+              </div>
 
-{/* Additional Information Section */}
-<section className="section-primary mt-4 pt-60 pb-60">
-  <div className="container-sub" style={{ color: '#fff' }}>
-    <h2 className="heading-32-medium mb-6" style={{ color: '#fff' }}>Additional Information</h2>
-    <p className="text-18" style={{ color: '#fff' }}>
-      Please note that our offer does not include:
-    </p>
-    <ul className="text-18 list-disc pl-8">
-      <li style={{ color: '#fff' }}>• Tour guide</li>
-      <li style={{ color: '#fff' }}>• Tickets to Newgrange</li>
-      <li style={{ color: '#fff' }}>• Rope Bridge tickets</li>
-      <li style={{ color: '#fff' }}>• Titanic Museum tickets</li>
-      <li style={{ color: '#fff' }}>• Meals (lunch/dinner)</li>
-      <li style={{ color: '#fff' }}>• Tip for driver</li>
-    </ul>
-    <h3 className="text-2xl font-semibold mt-10 mb-6" style={{ color: '#fff' }}>Additional Options</h3>
-    <p className="text-18" style={{ color: '#fff' }}>
-      The possibility to customize the route and trip plan according to individual preferences. Flexible planning of stops and their duration.
-    </p>
-  </div>
-  <div className="text-center mt-10">
-  <Link href="/bookingdaytrip" passHref>
-    <span className="btn btn-light rounded-3 px-4 py-3 fw-semibold" style={{ color: '#0EA5E9' }}>Make a booking</span>
-  </Link>
-</div>
-</section>
+              {/* Additional Options */}
+              <div className="col-lg-6 mb-30">
+                <div className="glass-card">
+                  <h2 className="heading-28-medium mb-6">Additional Options</h2>
+                  <p className="text-18" style={{ lineHeight: '1.7', color: '#fff' }}>
+                    The possibility to customize the route and trip plan according to individual preferences. Flexible planning of stops and their duration.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="text-center mt-30">
+              <Link href="/bookingdaytrip" passHref>
+                <span className="btn btn-light rounded-3 px-5 py-4 fw-bold text-18" style={{ color: '#0EA5E9', textTransform: 'uppercase', letterSpacing: '1px', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}>
+                  Make a booking
+                </span>
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
