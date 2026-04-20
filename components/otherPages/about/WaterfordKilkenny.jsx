@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link"; // Import powinien być tutaj, na górze
+import Link from "next/link"; 
 
 export default function WaterfordKilkennyTrip() {
   return (
@@ -76,42 +76,42 @@ export default function WaterfordKilkennyTrip() {
           </div>
         </section>
 
-       {/* Pricing Section */}
+       {/* Pricing Section - ZAKTUALIZOWANA */}
 <section className="section-primary pt-60 pb-60">
   <div className="container-sub">
     <h2 className="heading-32-medium mb-10 text-center">Price</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
       
-      {/* Card 1: Premium Car */}
+      {/* Card 1: Luxury */}
       <div className="card">
         <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Premium Car <span className="text-gray-600">(up to 3 people)</span>
+          Luxury <span className="text-gray-600">(up to 3 people)</span>
         </h3>
-        <p className="price">€695</p>
+        <p className="price">From €695</p>
         <p className="text-16 leading-relaxed">
-          Includes private comfortable car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+          Mercedes S-Class. Includes private luxury car transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
         </p>
       </div>
 
-      {/* Card 2: Premium MPV */}
+      {/* Card 2: Comfort */}
       <div className="card">
         <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Premium MPV <span className="text-gray-600">(up to 7 people)</span>
+          Comfort <span className="text-gray-600">(up to 7 people)</span>
         </h3>
-        <p className="price">€795</p>
+        <p className="price">From €795</p>
         <p className="text-16 leading-relaxed">
-          Includes private luxury transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+          Includes private comfortable transfer, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
         </p>
       </div>
 
-      {/* Card 3: Mercedes V Class */}
+      {/* Card 3: Executive */}
       <div className="card">
         <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-          Mercedes V Class <span className="text-gray-600">(up to 6 people)</span>
+          Executive <span className="text-gray-600">(up to 6 people)</span>
         </h3>
-        <p className="price">€895</p>
+        <p className="price">From €895</p>
         <p className="text-16 leading-relaxed">
-          Includes ultra-luxury VIP transfer, extra legroom, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
+          Mercedes V-Class with individual captain seats. Includes ultra-luxury VIP transfer, extra legroom, waiting time, parking and toll fees, bottled water, and free Wi-Fi.
         </p>
       </div>
 
