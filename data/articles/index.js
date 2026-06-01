@@ -1,5 +1,11 @@
 // --- IMPORTY ---
 
+// --- PACZKA 11 (Maj 2026) ---
+import { dublinToKilkennyMedievalPrivateTransfer } from './dublin-airport-to-kilkenny-medieval-private-transfer';
+import { dublinToDinglePeninsulaPrivateDrive } from './dublin-airport-to-dingle-peninsula-private-drive';
+import { dublinToWaterfordCopperCoastTransfer } from './dublin-airport-to-waterford-copper-coast-transfer';
+import { dublinToKinsaleGourmetWeekendTransfer } from './dublin-airport-to-kinsale-gourmet-weekend-transfer';
+
 // --- PACZKA 10 (Kwiecień 2026) ---
 import { cliffsOfMoherLuxuryTour } from './cliffs-of-moher-luxury-tour';
 import { michelinStarTransfers } from './michelin-star-transfers';
@@ -76,6 +82,12 @@ import { doolinTransfer } from './doolin-transfer';
 // Kolejność tutaj = Kolejność na stronie (od góry do dołu)
 
 export const articles = [
+
+  // --- MAJ 2026 ---
+  dublinToKilkennyMedievalPrivateTransfer,
+  dublinToDinglePeninsulaPrivateDrive,
+  dublinToWaterfordCopperCoastTransfer,
+  dublinToKinsaleGourmetWeekendTransfer,
 
   // --- KWIECIEŃ 2026 ---
   cliffsOfMoherLuxuryTour,
