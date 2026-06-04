@@ -56,7 +56,7 @@ const DatePickerComponent = dynamic(() => import("@/components/common/DatePicker
 const TimePickerComponent = dynamic(() => import("@/components/common/TimePicker"), { ssr: false });
 
 const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_BOOKING_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_ORDER;
 const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
